@@ -1,10 +1,10 @@
 //dependencies
 import React from "react";
 
-const Hero = () => {
+const Hero = ({ sectionName }) => {
   return (
     <section className="Hero">
-      <h1 className="MainTitle">Electronics</h1>
+      <h1 className="MainTitle">{sectionName}</h1>
     </section>
   );
 };
