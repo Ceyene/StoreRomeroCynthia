@@ -1,6 +1,6 @@
 //components
 import {
-  Navbar,
+  Header,
   Hero,
   Filters,
   ProductList,
@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="App">
       <GlobalStyle />
-      <Navbar />
+      <Header />
       <Hero sectionName="Electronics" />
       <Filters />
       <ProductList />

@@ -26,24 +26,24 @@ export const MainTitle = styled.h1`
 `;
 
 export const MainInfo = styled.h4`
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-family: "Rubik", sans-serif;
   font-weight: 500;
   margin: 0 0.5rem;
 
   @media screen and (min-width: 900px) {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 `;
 
 export const Title = styled.h3`
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-family: "Rubik", sans-serif;
   font-weight: 300;
   color: #888888;
 
   @media screen and (min-width: 900px) {
-    font-size: 1.6rem;
+    font-size: 1rem;
   }
 `;
 

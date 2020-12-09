@@ -1,4 +1,4 @@
-export { default as Navbar } from "./Navbar/Navbar";
+export { default as Header } from "./Header/Header";
 export { default as Hero } from "./Hero/Hero";
 export { default as Filters } from "./Filters/Filters";
 export { default as ProductList } from "./ProductList/ProductList";
