@@ -1,11 +1,14 @@
 //dependencies
 import React from "react";
+//styled components
+import { StyledHero } from "./Hero.elements";
+import { MainTitle } from "../../globalStyles";
 
 const Hero = ({ sectionName }) => {
   return (
-    <section className="Hero">
-      <h1 className="MainTitle">{sectionName}</h1>
-    </section>
+    <StyledHero>
+      <MainTitle>{sectionName}</MainTitle>
+    </StyledHero>
   );
 };
 
