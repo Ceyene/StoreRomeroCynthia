@@ -20,25 +20,22 @@ import {
 import { BagFill } from "@styled-icons/bootstrap/BagFill";
 import { Coins } from "@styled-icons/fa-solid/Coins";
 
-const Product = () => {
+const Product = ({ key, category, cost, photo, name }) => {
   return (
-    <ProductContainer>
+    <ProductContainer key={key}>
       <ProductIndicator>
         <BagFill />
       </ProductIndicator>
       <StyledProduct>
-        <ProductImg
-          src="https://dummyimage.com/600x400/000/fff.jpg"
-          alt="Product"
-        />
+        <ProductImg src={photo} alt={name} />
         <ContainerInfo>
-          <Info>Category</Info>
-          <SecondaryTitle>Product Name</SecondaryTitle>
+          <Info>{category}</Info>
+          <SecondaryTitle>{name}</SecondaryTitle>
         </ContainerInfo>
       </StyledProduct>
       <ProductRedeem>
         <Value>
-          <ProductValue>12000</ProductValue>
+          <ProductValue>{cost}</ProductValue>
           <Coins color="gold" />
         </Value>
         <ProductButton>Redeem now</ProductButton>

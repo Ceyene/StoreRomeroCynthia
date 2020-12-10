@@ -21,6 +21,23 @@ function App() {
   //state with select filters value
   const [filters, setFilters] = useState(filterState);
   /* --------------------------------- */
+  React.useEffect(() => {
+    const headers = {
+      "Content-Type": "application/json",
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmNmZTc2MDI2ZjdkMjAwMjA0MTE0YzgiLCJpYXQiOjE2MDc0NjA3MDR9.oJ_SM-h-ATKByizUQ_injP39Cn_TE45KBBOHGD_JBng",
+    };
+    const endpoint = "https://coding-challenge-api.aerolab.co/products";
+    fetch(endpoint, { headers })
+      .then((response) => response.json())
+      .then((content) => {
+        setProducts(content);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+  /* --------------------------------- */
   //handles state from select filters
   const handleSelect = (i) => {
     return (e) => {
@@ -54,7 +71,7 @@ function App() {
         resetHandler={handleReset}
       />
       <ProductList products={products} />
-      <Pagination />
+      <Pagination products={products} />
       <History />
       <Footer />
     </div>
