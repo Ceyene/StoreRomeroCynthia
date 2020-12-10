@@ -60,4 +60,25 @@ export const FlexContainer = styled.div`
   align-items: space-between;
 `;
 
+export const Button = styled.button`
+  outline: none;
+  margin-left: 1.5rem;
+  border-radius: 50%;
+  border: 1px solid ${({ borderColor }) => borderColor};
+  color: ${({ color }) => color};
+  background-color: ${({ bgColor }) => bgColor};
+  box-shadow: inset 0 -0.2em rgba(0, 0, 0, 0.2);
+  font-family: "Rubik", sans-serif;
+  padding: 0.5rem;
+
+  svg {
+    fill: ${({ color }) => color};
+    width: 1.5rem;
+  }
+
+  @media screen and (min-width: 900px) {
+    cursor: pointer;
+  }
+`;
+
 export default GlobalStyle;
