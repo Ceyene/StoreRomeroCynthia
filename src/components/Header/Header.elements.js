@@ -45,7 +45,7 @@ export const UserInfo = styled.div`
 `;
 
 export const Points = styled.div`
-  padding: 0.5rem;
+  padding: ${(props) => (props.Gift ? "0 0.5rem" : "0.5rem")};
   background-color: ${(props) =>
     props.Gift ? "transparent" : "rgba(24, 104, 157, 0.3)"};
   border-radius: ${(props) => (props.Gift ? "0" : "1rem")};

@@ -1,21 +1,35 @@
 //dependencies
 import React from "react";
+//styled components
+import { StyledFooter, FooterText, FooterLink } from "./Footer.elements";
+//styled icons
+import { SuitHeartFill } from "@styled-icons/bootstrap/SuitHeartFill";
 
 const Footer = () => {
   return (
-    <footer class="Footer">
-      <p>2020 - Developed with ♥ by Cynthia Romero</p>
-      <div>
+    <StyledFooter>
+      <FooterText>
+        2020 - Developed with <SuitHeartFill /> by Cynthia Romero.
+      </FooterText>
+      <FooterText>
         Logo made by{" "}
-        <a href="https://www.flaticon.com/authors/srip" title="srip">
+        <FooterLink
+          href="https://www.flaticon.com/authors/srip"
+          title="srip"
+          target="_blank"
+        >
           srip
-        </a>{" "}
+        </FooterLink>{" "}
         from{" "}
-        <a href="https://www.flaticon.com/" title="Flaticon">
+        <FooterLink
+          href="https://www.flaticon.com/"
+          title="Flaticon"
+          target="_blank"
+        >
           www.flaticon.com
-        </a>
-      </div>
-    </footer>
+        </FooterLink>
+      </FooterText>
+    </StyledFooter>
   );
 };
 

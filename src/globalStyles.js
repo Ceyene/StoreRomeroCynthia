@@ -96,7 +96,7 @@ export const Button = styled.button`
     cursor: pointer;
 
     &:hover {
-      background-color: rgba(0, 0, 0, 0.1);
+      background-color: #ebe8e8;
     }
   }
 `;
