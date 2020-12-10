@@ -1,7 +1,7 @@
 //dependencies
 import styled from "styled-components";
 //image
-import Background from "../../images/header-x1.png";
+import Background from "../../assets/images/header-x1.png";
 
 export const StyledHero = styled.section`
   background-image: url(${Background});

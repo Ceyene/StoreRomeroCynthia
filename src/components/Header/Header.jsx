@@ -1,7 +1,7 @@
 //dependencies
 import React from "react";
 //logo image
-import Logo from "../../images/gift-voucher.png";
+import Logo from "../../assets/images/gift-voucher.png";
 //styled components
 import {
   StyledHeader,

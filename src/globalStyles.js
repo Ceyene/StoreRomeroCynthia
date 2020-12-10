@@ -37,14 +37,27 @@ export const MainInfo = styled.h4`
 `;
 
 export const Title = styled.h3`
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-family: "Rubik", sans-serif;
   font-weight: 300;
   color: #888888;
 
   @media screen and (min-width: 900px) {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
+`;
+
+export const PaginationInfo = styled.p`
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #18689d;
+`;
+
+export const FlexContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: space-between;
 `;
 
 export default GlobalStyle;

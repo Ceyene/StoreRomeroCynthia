@@ -1,27 +1,33 @@
 //dependencies
 import React from "react";
+//components
+import Filter from "../Filter/Filter";
+//styled components
+import {
+  FiltersContainer,
+  PaginationContainer,
+  ResetButton,
+} from "./Filters.elements";
+import { Title, PaginationInfo } from "../../globalStyles";
 
-const Filters = () => {
+const Filters = ({ filters, selectHandler, resetHandler }) => {
   return (
-    <section className="Filters">
-      <div className="PaginationContainer">
-        <p className="PaginationInfo">16 of 32 products</p>
-      </div>
-      <h5 className="TertiaryTitle">Sort by:</h5>
-      <div className="SelectContainer">
-        <select>
-          <option value="0">Prices</option>
-          <option value="1">Lowest Price</option>
-          <option value="2">Highest Price</option>
-        </select>
-      </div>
-      <div className="SelectContainer">
-        <select>
-          <option value="0">Categories</option>
-        </select>
-      </div>
-      <button className="ResetButton">Reset filters</button>
-    </section>
+    <FiltersContainer>
+      <PaginationContainer>
+        <PaginationInfo>16 of 32 products</PaginationInfo>
+      </PaginationContainer>
+      <Title>Sort by:</Title>
+      {filters.map((filter) => (
+        <Filter
+          key={filter.id}
+          selectHandler={selectHandler(filter.id)}
+          data={filter.options}
+          name={filter.name}
+          value={filter.value}
+        />
+      ))}
+      <ResetButton onClick={resetHandler}>Reset filters</ResetButton>
+    </FiltersContainer>
   );
 };
 
