@@ -5,15 +5,17 @@ import {
   ProductContainer,
   ProductIndicator,
   StyledProduct,
-  ProductImg,
-  ProductInfo,
-  ProductCategory,
-  ProductTitle,
   ProductRedeem,
   Value,
   ProductValue,
   ProductButton,
 } from "./Product.elements";
+import {
+  ProductImg,
+  ContainerInfo,
+  SecondaryTitle,
+  Info,
+} from "../../globalStyles";
 //styled icons
 import { BagFill } from "@styled-icons/bootstrap/BagFill";
 import { Coins } from "@styled-icons/fa-solid/Coins";
@@ -29,10 +31,10 @@ const Product = () => {
           src="https://dummyimage.com/600x400/000/fff.jpg"
           alt="Product"
         />
-        <ProductInfo>
-          <ProductCategory>Category</ProductCategory>
-          <ProductTitle>Product Name</ProductTitle>
-        </ProductInfo>
+        <ContainerInfo>
+          <Info>Category</Info>
+          <SecondaryTitle>Product Name</SecondaryTitle>
+        </ContainerInfo>
       </StyledProduct>
       <ProductRedeem>
         <Value>

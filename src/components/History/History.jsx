@@ -1,20 +1,45 @@
 //dependencies
 import React from "react";
+//styled components
+import { StyledHistory, HistoryList, HistoryProduct } from "./History.elements";
+import {
+  Title,
+  ContainerInfo,
+  SecondaryTitle,
+  Info,
+  ProductImg,
+  Button,
+  FlexContainer,
+} from "../../globalStyles";
+//styled icons
+import { ArrowRightShort } from "@styled-icons/bootstrap/ArrowRightShort";
+import { ArrowLeftShort } from "@styled-icons/bootstrap/ArrowLeftShort";
 
 const History = () => {
   return (
-    <section className="History">
-      <h4 className="TertiaryTitle">Redeem History</h4>
-      <div className="HistoryList">
-        <div className="HistoryProduct">
-          <img src="https://dummyimage.com/600x400/000/fff.jpg" alt="Product" />
-          <div className="ProductInfo">
-            <h4 className="ProductTitle">Producto</h4>
-            <h6 className="ProductCategory">12000 pts</h6>
-          </div>
-        </div>
-      </div>
-    </section>
+    <StyledHistory>
+      <Title>Redeem History</Title>
+      <HistoryList>
+        <HistoryProduct>
+          <ProductImg
+            src="https://dummyimage.com/600x400/000/fff.jpg"
+            alt="Product"
+          />
+          <ContainerInfo>
+            <SecondaryTitle>Product Name</SecondaryTitle>
+            <Info>12000 pts</Info>
+          </ContainerInfo>
+        </HistoryProduct>
+      </HistoryList>
+      <FlexContainer>
+        <Button color="#888888" borderColor="#888888" bgColor="transparent">
+          <ArrowLeftShort />
+        </Button>
+        <Button color="#888888" borderColor="#888888" bgColor="transparent">
+          <ArrowRightShort />
+        </Button>
+      </FlexContainer>
+    </StyledHistory>
   );
 };
 

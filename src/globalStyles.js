@@ -47,6 +47,23 @@ export const Title = styled.h3`
   }
 `;
 
+export const Info = styled.h6`
+  font-size: 0.9rem;
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 100;
+  color: #888888;
+`;
+
+export const SecondaryTitle = styled.h4`
+  font-size: 1.3rem;
+  font-family: "JetBrains Mono", monospace;
+  color: #18689d;
+`;
+
+export const ProductImg = styled.img`
+  width: 100%;
+`;
+
 export const PaginationInfo = styled.p`
   font-size: 1.2rem;
   font-weight: 500;
@@ -55,9 +72,8 @@ export const PaginationInfo = styled.p`
 
 export const FlexContainer = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: space-between;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export const Button = styled.button`
@@ -78,7 +94,16 @@ export const Button = styled.button`
 
   @media screen and (min-width: 900px) {
     cursor: pointer;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
   }
+`;
+
+export const ContainerInfo = styled.div`
+  padding: 1rem;
+  border-top: 1px solid #18689d;
 `;
 
 export default GlobalStyle;

@@ -33,28 +33,6 @@ export const ProductIndicator = styled.span`
   }
 `;
 
-export const ProductImg = styled.img`
-  width: 100%;
-`;
-
-export const ProductInfo = styled.div`
-  padding: 1rem;
-  border-top: 1px solid #18689d;
-`;
-
-export const ProductCategory = styled.h6`
-  font-size: 0.9rem;
-  font-family: "JetBrains Mono", monospace;
-  font-weight: 100;
-  color: #888888;
-`;
-
-export const ProductTitle = styled.h4`
-  font-size: 1.3rem;
-  font-family: "JetBrains Mono", monospace;
-  color: #18689d;
-`;
-
 export const ProductRedeem = styled.div`
   background-color: rgba(24, 104, 157, 0.7);
   display: flex;
