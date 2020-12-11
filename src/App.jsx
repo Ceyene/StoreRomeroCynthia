@@ -1,7 +1,8 @@
 //dependencies
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 //assets
 import { filterState } from "./assets/filtersData";
+import { headers, productsEndpoint } from "./assets/apiData";
 //components
 import {
   Header,
@@ -21,9 +22,18 @@ function App() {
   //state with select filters value
   const [filters, setFilters] = useState(filterState);
   /* --------------------------------- */
-  React.useEffect(() => {
+  //First time it renders, it calls API and gets products
+  useEffect(() => {
     callProducts();
   }, []);
+  /* --------------------------------- */
+  //when "filters" state updates,
+  //this function compares and change array in "products" state
+  useEffect(() => {
+    productsPrice();
+    productsCategory();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filters]);
   /* --------------------------------- */
   //handles state from select filters
   const handleSelect = (i) => {
@@ -47,22 +57,46 @@ function App() {
   /* --------------------------------- */
   //it calls API and gets products data
   const callProducts = () => {
-    const headers = {
-      "Content-Type": "application/json",
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmNmZTc2MDI2ZjdkMjAwMjA0MTE0YzgiLCJpYXQiOjE2MDc0NjA3MDR9.oJ_SM-h-ATKByizUQ_injP39Cn_TE45KBBOHGD_JBng",
-    };
-    const endpoint = "https://coding-challenge-api.aerolab.co/products";
-    fetch(endpoint, { headers })
+    fetch(productsEndpoint, { headers })
       .then((response) => response.json())
       .then((content) => {
         setProducts(content);
       })
       .catch((error) => {
-        console.log(error);
+        alert(error);
       });
   };
   /* --------------------------------- */
+  //it filters products by category
+  const productsCategory = () => {
+    let productsCopy = products.filter((product) => {
+      return (
+        //it filters products by category
+        product.category === filters[1].value ||
+        filters[1].value === "Categories"
+      );
+    });
+    setProducts(productsCopy);
+  };
+  //it filters products by price
+  const productsPrice = () => {
+    switch (filters[0].value) {
+      case "Lowest Price":
+        const lowerPriceFirst = products.sort((a, b) => a.cost - b.cost);
+        setProducts(lowerPriceFirst);
+        console.log(products);
+        break;
+      case "Highest Price":
+        const higherPriceFirst = products.sort((a, b) => b.cost - a.cost);
+        setProducts(higherPriceFirst);
+        console.log(products);
+        break;
+      default:
+        return;
+    }
+  };
+  /* --------------------------------- */
+
   return (
     <div className="App">
       <GlobalStyle />
