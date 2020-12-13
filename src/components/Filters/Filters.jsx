@@ -10,7 +10,17 @@ import {
 } from "./Filters.elements";
 import { Title, PaginationInfo } from "../../globalStyles";
 
-const Filters = ({ filters, selectHandler, resetHandler }) => {
+const Filters = ({ filters, setFilters, handleReset }) => {
+  //handles state from select filters
+  const handleSelect = (i) => {
+    return (e) => {
+      const copyFilters = [...filters];
+      copyFilters[i].value = e.target.value;
+      setFilters(copyFilters);
+    };
+  };
+  /* --------------------------------- */
+
   return (
     <FiltersContainer>
       <PaginationContainer>
@@ -20,13 +30,13 @@ const Filters = ({ filters, selectHandler, resetHandler }) => {
       {filters.map((filter) => (
         <Filter
           key={filter.id}
-          selectHandler={selectHandler(filter.id)}
+          handleSelect={handleSelect(filter.id)}
           data={filter.options}
           name={filter.name}
           value={filter.value}
         />
       ))}
-      <ResetButton onClick={resetHandler}>Reset filters</ResetButton>
+      <ResetButton onClick={handleReset}>Reset filters</ResetButton>
     </FiltersContainer>
   );
 };
