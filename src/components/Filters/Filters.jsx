@@ -11,7 +11,7 @@ import {
 } from "./Filters.elements";
 import { Title } from "../../globalStyles";
 
-const Filters = ({ filters, setFilters, handleReset, products }) => {
+const Filters = ({ filters, setFilters, getData, products }) => {
   //handles state from filters
   const handleFilters = (i) => {
     return (e) => {
@@ -19,6 +19,16 @@ const Filters = ({ filters, setFilters, handleReset, products }) => {
       copyFilters[i].value = e.target.value;
       setFilters(copyFilters);
     };
+  };
+  //it resets state from filters
+  //country, price and size reset
+  const handleReset = () => {
+    const filtersCopy = [...filters];
+    filtersCopy[0].value = "Prices";
+    filtersCopy[1].value = "Categories";
+    setFilters(filtersCopy);
+    //renderize all, without filters
+    getData();
   };
   /* --------------------------------- */
 

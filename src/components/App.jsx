@@ -48,16 +48,7 @@ function App() {
     }
   };
   /* --------------------------------- */
-  //it resets state from filters
-  //country, price and size reset
-  const handleReset = () => {
-    const filtersCopy = [...filters];
-    filtersCopy[0].value = "Prices";
-    filtersCopy[1].value = "Categories";
-    setFilters(filtersCopy);
-    //renderize all, without filters
-    callProducts();
-  };
+
   /* --------------------------------- */
 
   return (
@@ -68,7 +59,7 @@ function App() {
       <Filters
         filters={filters}
         setFilters={setFilters}
-        handleReset={handleReset}
+        getData={getData}
         products={products.data}
       />
       <ProductList products={products} setProducts={setProducts} />
