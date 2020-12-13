@@ -11,8 +11,8 @@ import {
 import { Title, PaginationInfo } from "../../globalStyles";
 
 const Filters = ({ filters, setFilters, handleReset }) => {
-  //handles state from select filters
-  const handleSelect = (i) => {
+  //handles state from filters
+  const handleFilters = (i) => {
     return (e) => {
       const copyFilters = [...filters];
       copyFilters[i].value = e.target.value;
@@ -30,7 +30,7 @@ const Filters = ({ filters, setFilters, handleReset }) => {
       {filters.map((filter) => (
         <Filter
           key={filter.id}
-          handleSelect={handleSelect(filter.id)}
+          handleFilters={handleFilters(filter.id)}
           data={filter.options}
           name={filter.name}
           value={filter.value}

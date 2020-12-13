@@ -3,10 +3,10 @@ import React from "react";
 //styled components
 import { StyledFilter, StyledSelect, StyledOption } from "./Filter.elements";
 
-const Filter = ({ data, name, value, selectHandler }) => {
+const Filter = ({ data, name, value, handleFilters }) => {
   return (
     <StyledFilter>
-      <StyledSelect value={value} onChange={selectHandler} name={name}>
+      <StyledSelect value={value} onChange={handleFilters} name={name}>
         {data.map((item, index) => (
           <StyledOption value={item} key={index}>
             {item}
