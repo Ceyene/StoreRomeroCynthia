@@ -8,9 +8,28 @@ import { FlexContainer, SecondaryTitle } from "../../globalStyles";
 
 //it renders all available products
 const ProductList = ({ products }) => {
-  return products.length > 0 ? (
+  const { loading, error, data } = products;
+  if (loading === true) {
+    return (
+      //It renders loading message
+      <FlexContainer Centered>
+        <SecondaryTitle>Loading...</SecondaryTitle>
+      </FlexContainer>
+    );
+  }
+
+  if (error) {
+    return (
+      //It renders notification of error
+      <FlexContainer Centered>
+        <SecondaryTitle>{error}</SecondaryTitle>
+      </FlexContainer>
+    );
+  }
+
+  return (
     <ProductListContainer>
-      {products.map((product) => (
+      {data.map((product) => (
         <Product
           key={product.id}
           category={product.category}
@@ -20,11 +39,6 @@ const ProductList = ({ products }) => {
         />
       ))}
     </ProductListContainer>
-  ) : (
-    //notification: it renders when there are no products available
-    <FlexContainer>
-      <SecondaryTitle>Products not found. Keep looking!</SecondaryTitle>
-    </FlexContainer>
   );
 };
 

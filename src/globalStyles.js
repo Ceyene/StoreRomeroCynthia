@@ -64,7 +64,7 @@ export const ProductImg = styled.img`
   width: 100%;
 `;
 
-export const PaginationInfo = styled.p`
+export const PaginationText = styled.p`
   font-size: 1.2rem;
   font-weight: 500;
   color: #18689d;
@@ -72,7 +72,7 @@ export const PaginationInfo = styled.p`
 
 export const FlexContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: ${(props) => (props.Centered ? "center" : "space-between")};
   align-items: center;
 `;
 

@@ -2,15 +2,16 @@
 import React from "react";
 //components
 import Filter from "../Filter/Filter";
+import PaginationInfo from "../PaginationInfo/PaginationInfo";
 //styled components
 import {
   FiltersContainer,
   PaginationContainer,
   ResetButton,
 } from "./Filters.elements";
-import { Title, PaginationInfo } from "../../globalStyles";
+import { Title } from "../../globalStyles";
 
-const Filters = ({ filters, setFilters, handleReset }) => {
+const Filters = ({ filters, setFilters, handleReset, products }) => {
   //handles state from filters
   const handleFilters = (i) => {
     return (e) => {
@@ -24,7 +25,7 @@ const Filters = ({ filters, setFilters, handleReset }) => {
   return (
     <FiltersContainer>
       <PaginationContainer>
-        <PaginationInfo>16 of 32 products</PaginationInfo>
+        <PaginationInfo prodList={products} />
       </PaginationContainer>
       <Title>Sort by:</Title>
       {filters.map((filter) => (

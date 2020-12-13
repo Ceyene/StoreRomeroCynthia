@@ -10,7 +10,7 @@ const userEndpoint = "https://coding-challenge-api.aerolab.co/user/me";
 /* --------------------------------- */
 //it calls api and gets data
 async function callApi(endpoint, headers) {
-  const response = await fetch(endpoint, headers);
+  const response = await fetch(endpoint, { headers });
   const data = await response.json();
   return data;
 }
