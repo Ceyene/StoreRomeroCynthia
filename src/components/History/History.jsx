@@ -1,45 +1,46 @@
 //dependencies
 import React from "react";
+//components
+import HistoryProduct from "../HistoryProduct/HistoryProduct";
 //styled components
-import { StyledHistory, HistoryList, HistoryProduct } from "./History.elements";
-import {
-  Title,
-  ContainerInfo,
-  SecondaryTitle,
-  Info,
-  ProductImg,
-  Button,
-  FlexContainer,
-} from "../../globalStyles";
-//styled icons
-import { ArrowRightShort } from "@styled-icons/bootstrap/ArrowRightShort";
-import { ArrowLeftShort } from "@styled-icons/bootstrap/ArrowLeftShort";
+import { HistoryList } from "./History.elements";
+import { FlexContainer, SecondaryTitle } from "../../globalStyles";
 
-const History = () => {
-  return (
-    <StyledHistory>
-      <Title>Redeem History</Title>
-      <HistoryList>
-        <HistoryProduct>
-          <ProductImg
-            src="https://dummyimage.com/600x400/000/fff.jpg"
-            alt="Product"
-          />
-          <ContainerInfo>
-            <SecondaryTitle>Product Name</SecondaryTitle>
-            <Info>12000 pts</Info>
-          </ContainerInfo>
-        </HistoryProduct>
-      </HistoryList>
-      <FlexContainer>
-        <Button color="#888888" borderColor="#888888" bgColor="transparent">
-          <ArrowLeftShort />
-        </Button>
-        <Button color="#888888" borderColor="#888888" bgColor="transparent">
-          <ArrowRightShort />
-        </Button>
+const History = ({ history }) => {
+  const { loading, error, data } = history;
+  if (loading === true) {
+    return (
+      //It renders loading message
+      <FlexContainer Centered>
+        <SecondaryTitle Notification>Loading...</SecondaryTitle>
       </FlexContainer>
-    </StyledHistory>
+    );
+  }
+
+  if (error) {
+    return (
+      //It renders notification of error
+      <FlexContainer Centered>
+        <SecondaryTitle>{error}</SecondaryTitle>
+      </FlexContainer>
+    );
+  }
+  return Object.keys(data).length !== 0 ? (
+    <HistoryList>
+      {data.map((prod, index) => (
+        <HistoryProduct
+          key={`history${index}`}
+          name={prod.name}
+          photo={prod.img.url}
+          cost={prod.cost}
+        />
+      ))}
+    </HistoryList>
+  ) : (
+    //It renders message when no history products are found
+    <FlexContainer Centered>
+      <SecondaryTitle Notification>No products redeemed</SecondaryTitle>
+    </FlexContainer>
   );
 };
 

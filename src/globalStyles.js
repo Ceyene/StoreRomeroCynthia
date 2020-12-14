@@ -58,6 +58,7 @@ export const SecondaryTitle = styled.h4`
   font-size: 1.3rem;
   font-family: "JetBrains Mono", monospace;
   color: #18689d;
+  margin: ${(props) => (props.Notification ? "2.5rem 0" : "0")};
 `;
 
 export const ProductImg = styled.img`

@@ -12,7 +12,7 @@ import {
   Filters,
   ProductList,
   Pagination,
-  History,
+  HistoryContainer,
   Footer,
 } from "./";
 //styles
@@ -68,7 +68,7 @@ function App() {
         />
         <ProductList products={products} setProducts={setProducts} />
         <Pagination products={products.data} />
-        <History />
+        <HistoryContainer />
         <Footer />
       </div>
     </UserProvider>

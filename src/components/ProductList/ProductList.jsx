@@ -13,7 +13,7 @@ const ProductList = ({ products }) => {
     return (
       //It renders loading message
       <FlexContainer Centered>
-        <SecondaryTitle>Loading...</SecondaryTitle>
+        <SecondaryTitle Notification>Loading...</SecondaryTitle>
       </FlexContainer>
     );
   }
