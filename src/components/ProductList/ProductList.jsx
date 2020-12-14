@@ -32,6 +32,7 @@ const ProductList = ({ products }) => {
       {data.map((product, index) => (
         <Product
           key={`prod${index}`}
+          id={product._id}
           category={product.category}
           cost={product.cost}
           photo={product.img.hdUrl}

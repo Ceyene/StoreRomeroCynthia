@@ -7,6 +7,7 @@ const productsEndpoint = "https://coding-challenge-api.aerolab.co/products";
 const userEndpoint = "https://coding-challenge-api.aerolab.co/user/me";
 const pointsEndpoint = "https://coding-challenge-api.aerolab.co/user/points";
 const historyEndpoint = "https://coding-challenge-api.aerolab.co/user/history";
+const redeemEndpoint = "https://coding-challenge-api.aerolab.co/redeem";
 
 /* --------------------------------- */
 //it calls api and gets data
@@ -48,4 +49,26 @@ export const sendPoints = async (giftPoints) => {
       return result["New Points"];
     })
     .catch((error) => alert("error", error));
+};
+/* -------------------------------- */
+//it exchanges points for products
+export const redeemProduct = async (productId) => {
+  //receives product id to exchange
+  const raw = JSON.stringify({ productId: productId });
+  //info to api request options
+  var requestOptions = {
+    method: "POST",
+    headers: myHeaders,
+    body: raw,
+    redirect: "follow",
+  };
+  //sending data to api
+  fetch(redeemEndpoint, requestOptions)
+    .then((response) => response.text())
+    .then((result) => {
+      return result;
+    })
+    .catch((error) => {
+      return error;
+    });
 };

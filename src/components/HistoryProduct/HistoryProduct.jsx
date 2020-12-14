@@ -9,16 +9,13 @@ import {
   ProductImg,
 } from "../../globalStyles";
 
-const HistoryProduct = () => {
+const HistoryProduct = ({ name, photo, cost }) => {
   return (
     <StyledHistoryProduct>
-      <ProductImg
-        src="https://dummyimage.com/600x400/000/fff.jpg"
-        alt="Product"
-      />
+      <ProductImg src={photo} alt={name} />
       <ContainerInfo>
-        <SecondaryTitle>Product Name</SecondaryTitle>
-        <Info>12000 pts</Info>
+        <SecondaryTitle>{name}</SecondaryTitle>
+        <Info>{cost} pts</Info>
       </ContainerInfo>
     </StyledHistoryProduct>
   );
