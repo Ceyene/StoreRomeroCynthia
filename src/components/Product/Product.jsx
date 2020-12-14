@@ -26,7 +26,7 @@ import { Coins } from "@styled-icons/fa-solid/Coins";
 
 //it renders each product available
 const Product = ({ id, category, cost, photo, name }) => {
-  //extracting data from Provider UserContext
+  //extracting points data from Provider UserContext
   const { userPoints } = useContext(UserContext);
   const points = userPoints.data;
   //Redeeming products with user points

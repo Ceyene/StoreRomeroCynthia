@@ -39,6 +39,7 @@ const Header = () => {
     }
   };
   /* --------------------------------- */
+  //it renders header function
   return (
     <StyledHeader>
       <LogoImg src={Logo} alt="Store Logo" />

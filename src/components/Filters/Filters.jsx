@@ -61,7 +61,7 @@ const Filters = ({ filters, setFilters, getData, products, setProducts }) => {
     }
   };
   /* --------------------------------- */
-
+  //it renders filters section
   return (
     <FiltersContainer>
       <PaginationContainer>

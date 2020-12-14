@@ -9,6 +9,7 @@ import { Button, FlexContainer } from "../../globalStyles";
 import { ArrowRightShort } from "@styled-icons/bootstrap/ArrowRightShort";
 import { ArrowLeftShort } from "@styled-icons/bootstrap/ArrowLeftShort";
 
+//it renders pagination section
 const Pagination = ({ products }) => {
   return (
     <StyledPagination>

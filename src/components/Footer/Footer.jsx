@@ -5,6 +5,7 @@ import { StyledFooter, FooterText, FooterLink } from "./Footer.elements";
 //styled icons
 import { SuitHeartFill } from "@styled-icons/bootstrap/SuitHeartFill";
 
+//it renders footer section
 const Footer = () => {
   return (
     <StyledFooter>

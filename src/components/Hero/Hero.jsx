@@ -4,6 +4,7 @@ import React from "react";
 import { StyledHero } from "./Hero.elements";
 import { MainTitle } from "../../globalStyles";
 
+//it renders section name
 const Hero = ({ sectionName }) => {
   return (
     <StyledHero>

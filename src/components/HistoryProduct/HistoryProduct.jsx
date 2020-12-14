@@ -9,6 +9,7 @@ import {
   ProductImg,
 } from "../../globalStyles";
 
+//it renders each redeemed product
 const HistoryProduct = ({ name, photo, cost }) => {
   return (
     <StyledHistoryProduct>

@@ -3,6 +3,7 @@ import React from "react";
 //styled components
 import { PaginationText } from "../../globalStyles";
 
+//it renders pagination information
 const PaginationInfo = ({ prodList }) => {
   if (prodList === undefined) {
     return <PaginationText>Loading...</PaginationText>;

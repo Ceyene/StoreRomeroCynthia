@@ -25,6 +25,7 @@ const History = ({ history }) => {
       </FlexContainer>
     );
   }
+  //it renders history of redeemed products
   return Object.keys(data).length !== 0 ? (
     <HistoryList>
       {data.map((prod, index) => (

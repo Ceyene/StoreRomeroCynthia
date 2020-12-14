@@ -40,6 +40,7 @@ const HistoryContainer = () => {
     }
   };
   /* --------------------------------- */
+  //it renders history section
   return (
     <StyledHistory>
       <Title>Redeem History</Title>

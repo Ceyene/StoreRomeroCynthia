@@ -18,6 +18,7 @@ const MainInformation = ({ userInfo }) => {
       <MainInfo Message>{error}</MainInfo>
     );
   }
+  //it renders user information
   return <MainInfo>{data}</MainInfo>;
 };
 
