@@ -1,5 +1,7 @@
 //dependencies
-import React from "react";
+import React, { useContext } from "react";
+//context
+import { UserContext } from "../../assets/userData";
 //components
 import ProductIndicator from "../ProductIndicator/ProductIndicator";
 //styled components
@@ -21,9 +23,13 @@ import {
 import { Coins } from "@styled-icons/fa-solid/Coins";
 
 const Product = ({ category, cost, photo, name }) => {
+  //extracting data from Provider UserContext
+  const { userPoints } = useContext(UserContext);
+  const points = userPoints.data;
+
   return (
     <ProductContainer>
-      <ProductIndicator cost={cost} />
+      <ProductIndicator cost={cost} points={points} />
       <StyledProduct>
         <ProductImg src={photo} alt={name} />
         <ContainerInfo>
@@ -36,7 +42,7 @@ const Product = ({ category, cost, photo, name }) => {
           <ProductValue>{cost}</ProductValue>
           <Coins color="gold" />
         </Value>
-        <ProductButton>Redeem now</ProductButton>
+        {points >= cost && <ProductButton>Redeem now</ProductButton>}
       </ProductRedeem>
     </ProductContainer>
   );
