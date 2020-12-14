@@ -26,13 +26,13 @@ export const MainTitle = styled.h1`
 `;
 
 export const MainInfo = styled.h4`
-  font-size: 1rem;
+  font-size: ${(props) => (props.Message ? "0.75rem" : "1rem")};
   font-family: "Rubik", sans-serif;
   font-weight: 500;
   margin: 0 0.5rem;
 
   @media screen and (min-width: 900px) {
-    font-size: 1.5rem;
+    font-size: ${(props) => (props.Message ? "1rem" : "1.5rem")};
   }
 `;
 

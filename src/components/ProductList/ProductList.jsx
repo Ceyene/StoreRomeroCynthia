@@ -29,9 +29,9 @@ const ProductList = ({ products }) => {
 
   return (
     <ProductListContainer>
-      {data.map((product) => (
+      {data.map((product, index) => (
         <Product
-          key={product.id}
+          key={`prod${index}`}
           category={product.category}
           cost={product.cost}
           photo={product.img.hdUrl}

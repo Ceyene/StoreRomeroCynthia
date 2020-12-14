@@ -1,7 +1,11 @@
 //dependencies
-import React from "react";
+import React, { useContext } from "react";
+//context
+import { UserContext } from "../../assets/userData";
 //logo image
 import Logo from "../../assets/images/gift-voucher.png";
+//components
+import MainInformation from "../MainInformation/MainInformation";
 //styled components
 import {
   StyledHeader,
@@ -12,18 +16,20 @@ import {
   LogoImg,
   StyledIcon,
 } from "./Header.elements";
-import { MainInfo, Title } from "../../globalStyles";
+import { Title } from "../../globalStyles";
 //styled icons
 import { Coins } from "@styled-icons/fa-solid/Coins";
 
 const Header = () => {
+  //extracting data from Provider UserContext
+  const { userPoints, userName } = useContext(UserContext);
   return (
     <StyledHeader>
       <LogoImg src={Logo} alt="Store Logo" />
       <UserInfo>
-        <MainInfo>John Kite</MainInfo>
+        <MainInformation userInfo={userName} />
         <Points>
-          <MainInfo>6000</MainInfo>
+          <MainInformation userInfo={userPoints} />
           <StyledIcon>
             <Coins color="gold" />
           </StyledIcon>

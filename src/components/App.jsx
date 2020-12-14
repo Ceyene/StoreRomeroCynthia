@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 //assets
 import { filterState } from "../assets/filtersData";
 import { callProducts } from "../assets/apiData";
+//context provider
+import UserProvider from "../assets/userData";
 //components
 import {
   Header,
@@ -39,9 +41,9 @@ function App() {
 
     try {
       //data: async call, it returns promise
-      const data = await callProducts();
+      const productsData = await callProducts();
       //stop loading and presenting data
-      setProducts({ loading: false, data: data });
+      setProducts({ loading: false, data: productsData });
     } catch (error) {
       //stop loading and presenting error
       setProducts({ loading: false, error });
@@ -52,22 +54,24 @@ function App() {
   /* --------------------------------- */
 
   return (
-    <div className="App">
-      <GlobalStyle />
-      <Header />
-      <Hero sectionName="Electronics" />
-      <Filters
-        filters={filters}
-        setFilters={setFilters}
-        getData={getData}
-        products={products.data}
-        setProducts={setProducts}
-      />
-      <ProductList products={products} setProducts={setProducts} />
-      <Pagination products={products.data} />
-      <History />
-      <Footer />
-    </div>
+    <UserProvider>
+      <div className="App">
+        <GlobalStyle />
+        <Header />
+        <Hero sectionName="Electronics" />
+        <Filters
+          filters={filters}
+          setFilters={setFilters}
+          getData={getData}
+          products={products.data}
+          setProducts={setProducts}
+        />
+        <ProductList products={products} setProducts={setProducts} />
+        <Pagination products={products.data} />
+        <History />
+        <Footer />
+      </div>
+    </UserProvider>
   );
 }
 

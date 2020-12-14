@@ -1,45 +1,51 @@
-// //Dependencies
-// import React, { useState } from "react";
-// //Assets
-// import { headers, userEndpoint } from "./assets/apiData";
+//Dependencies
+import React, { useState, useEffect } from "react";
+//Assets
+import { callUser } from "./apiData";
 
-// //Creating context
-// export const UserContext = React.createContext();
+//Creating context
+export const UserContext = React.createContext();
 
-// //Creating Provider
-// export default function UserProvider({ children }) {
-//   //Defining initial states with useState
-//   const [userPoints, setUserPoints] = useState(0);
-//   const [userName, setUserName] = useState("");
+//Creating Provider
+export default function UserProvider({ children }) {
+  //Defining initial states with useState
+  const [userPoints, setUserPoints] = useState({
+    loading: true,
+    error: null,
+    data: undefined,
+  });
+  const [userName, setUserName] = useState({
+    loading: true,
+    error: null,
+    data: undefined,
+  });
 
-//   useEffect(() => {
-//     //it calls API and gets user data
-//     const getPoints = () => {
-//       fetch(userEndpoint, { headers })
-//         .then((response) => response.json())
-//         .then((content) => {
-//           console.log(content);
-//         })
-//         .catch((error) => {
-//           return error;
-//         });
-//     };
-//     //it calls API and gets user data
-//     const getName = () => {
-//       fetch(userEndpoint, { headers })
-//         .then((response) => response.json())
-//         .then((content) => {
-//           console.log(content);
-//         })
-//         .catch((error) => {
-//           return error;
-//         });
-//     };
-//   }, []);
+  useEffect(() => {
+    getUser();
+  }, []);
+  /* --------------------------------- */
+  //Getting user data
+  const getUser = async () => {
+    //initial state: loading and without errors
+    setUserPoints({ loading: true, error: null });
 
-//   return (
-//     <UserContext.Provider value={{ userPoints, setUserPoints }}>
-//       {children}
-//     </UserContext.Provider>
-//   );
-// }
+    try {
+      //data: async call, it returns promise
+      const user = await callUser();
+      //stop loading and presenting data
+      setUserPoints({ loading: false, data: user.points });
+      setUserName({ loading: false, data: user.name });
+    } catch (error) {
+      //stop loading and presenting error
+      setUserPoints({ loading: false, error });
+      setUserName({ loading: false, error });
+    }
+  };
+  /* --------------------------------- */
+
+  return (
+    <UserContext.Provider value={{ userPoints, userName }}>
+      {children}
+    </UserContext.Provider>
+  );
+}

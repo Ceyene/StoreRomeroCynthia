@@ -20,9 +20,9 @@ import {
 import { BagFill } from "@styled-icons/bootstrap/BagFill";
 import { Coins } from "@styled-icons/fa-solid/Coins";
 
-const Product = ({ key, category, cost, photo, name }) => {
+const Product = ({ category, cost, photo, name }) => {
   return (
-    <ProductContainer key={key}>
+    <ProductContainer>
       <ProductIndicator>
         <BagFill />
       </ProductIndicator>
