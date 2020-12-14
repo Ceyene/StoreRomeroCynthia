@@ -1,9 +1,10 @@
 //dependencies
 import React from "react";
+//components
+import ProductIndicator from "../ProductIndicator/ProductIndicator";
 //styled components
 import {
   ProductContainer,
-  ProductIndicator,
   StyledProduct,
   ProductRedeem,
   Value,
@@ -17,15 +18,12 @@ import {
   Info,
 } from "../../globalStyles";
 //styled icons
-import { BagFill } from "@styled-icons/bootstrap/BagFill";
 import { Coins } from "@styled-icons/fa-solid/Coins";
 
 const Product = ({ category, cost, photo, name }) => {
   return (
     <ProductContainer>
-      <ProductIndicator>
-        <BagFill />
-      </ProductIndicator>
+      <ProductIndicator cost={cost} />
       <StyledProduct>
         <ProductImg src={photo} alt={name} />
         <ContainerInfo>

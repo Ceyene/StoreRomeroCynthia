@@ -13,26 +13,6 @@ export const ProductContainer = styled.article`
   }
 `;
 
-export const ProductIndicator = styled.span`
-  background-color: #18689d;
-  color: #fdfcfb;
-  border-radius: 50%;
-  width: 2rem;
-  height: 2rem;
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  svg {
-    fill: ${({ color }) => color || "white"};
-    width: 1rem;
-  }
-`;
-
 export const ProductRedeem = styled.div`
   background-color: rgba(24, 104, 157, 0.7);
   display: flex;
