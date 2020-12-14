@@ -61,6 +61,7 @@ function App() {
         setFilters={setFilters}
         getData={getData}
         products={products.data}
+        setProducts={setProducts}
       />
       <ProductList products={products} setProducts={setProducts} />
       <Pagination products={products.data} />

@@ -1,5 +1,5 @@
 //dependencies
-import React from "react";
+import React, { useEffect } from "react";
 //components
 import Filter from "../Filter/Filter";
 import PaginationInfo from "../PaginationInfo/PaginationInfo";
@@ -11,7 +11,14 @@ import {
 } from "./Filters.elements";
 import { Title } from "../../globalStyles";
 
-const Filters = ({ filters, setFilters, getData, products }) => {
+const Filters = ({ filters, setFilters, getData, products, setProducts }) => {
+  //when "filters" state updates,
+  //this function compares and change array in "products" state
+  useEffect(() => {
+    productFilters();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filters]);
+  /* --------------------------------- */
   //handles state from filters
   const handleFilters = (i) => {
     return (e) => {
@@ -29,6 +36,29 @@ const Filters = ({ filters, setFilters, getData, products }) => {
     setFilters(filtersCopy);
     //renderize all, without filters
     getData();
+  };
+  /* --------------------------------- */
+  //it filters products by price
+  const productFilters = () => {
+    if (filters[0].value !== "Prices" && products !== undefined) {
+      if (filters[0].value === "Lowest Price") {
+        const lowerPriceFirst = products.sort((a, b) => a.cost - b.cost);
+        return setProducts({ data: lowerPriceFirst });
+      } else if (filters[0].value === "Highest Price") {
+        const higherPriceFirst = products.sort((a, b) => b.cost - a.cost);
+        return setProducts({ data: higherPriceFirst });
+      }
+    }
+    categoryFilters();
+  };
+  //it filters products by category
+  const categoryFilters = () => {
+    if (filters[1].value !== "Categories" && products !== undefined) {
+      let productsCopy = products.filter((product) => {
+        return product.category === filters[1].value;
+      });
+      return setProducts({ data: productsCopy });
+    }
   };
   /* --------------------------------- */
 
