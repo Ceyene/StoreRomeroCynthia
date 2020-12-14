@@ -20,6 +20,8 @@ const ProductIndicator = ({ cost, points }) => {
         <BagFill />
       </StyledProdIndicator>
     );
+  } else {
+    return;
   }
 };
 

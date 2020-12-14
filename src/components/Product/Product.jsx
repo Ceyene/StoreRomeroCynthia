@@ -1,7 +1,7 @@
 //dependencies
 import React, { useContext } from "react";
 //context
-import { UserContext } from "../../assets/userData";
+import { UserContext } from "../../context/userProvider";
 //components
 import ProductIndicator from "../ProductIndicator/ProductIndicator";
 //styled components

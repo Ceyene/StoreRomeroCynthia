@@ -1,7 +1,9 @@
 //dependencies
 import React, { useContext } from "react";
+//assets
+import { sendPoints } from "../../assets/apiData";
 //context
-import { UserContext } from "../../assets/userData";
+import { UserContext } from "../../context/userProvider";
 //logo image
 import Logo from "../../assets/images/gift-voucher.png";
 //components
@@ -22,7 +24,21 @@ import { Coins } from "@styled-icons/fa-solid/Coins";
 
 const Header = () => {
   //extracting data from Provider UserContext
-  const { userPoints, userName } = useContext(UserContext);
+  const { userPoints, setUserPoints, userName } = useContext(UserContext);
+
+  //update points when adding gift points
+  const addPoints = async (giftPoints) => {
+    try {
+      //data: async call, it returns promise
+      const newPoints = await sendPoints(giftPoints);
+      //presenting data
+      setUserPoints({ data: newPoints });
+    } catch (error) {
+      //presenting error
+      setUserPoints({ error });
+    }
+  };
+  /* --------------------------------- */
   return (
     <StyledHeader>
       <LogoImg src={Logo} alt="Store Logo" />
@@ -37,9 +53,30 @@ const Header = () => {
         <GiftPoints>
           <Title>Get Free Points!</Title>
           <Points Gift>
-            <GiftButton> 1000 </GiftButton>
-            <GiftButton> 5000 </GiftButton>
-            <GiftButton> 7500 </GiftButton>
+            <GiftButton
+              onClick={() => {
+                addPoints(1000);
+              }}
+            >
+              {" "}
+              1000{" "}
+            </GiftButton>
+            <GiftButton
+              onClick={() => {
+                sendPoints(5000);
+              }}
+            >
+              {" "}
+              5000{" "}
+            </GiftButton>
+            <GiftButton
+              onClick={() => {
+                sendPoints(7500);
+              }}
+            >
+              {" "}
+              7500{" "}
+            </GiftButton>
           </Points>
         </GiftPoints>
       </UserInfo>

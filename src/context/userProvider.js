@@ -1,7 +1,7 @@
 //Dependencies
 import React, { useState, useEffect } from "react";
 //Assets
-import { callUser } from "./apiData";
+import { callUser } from "../assets/apiData";
 
 //Creating context
 export const UserContext = React.createContext();
@@ -19,7 +19,7 @@ export default function UserProvider({ children }) {
     error: null,
     data: undefined,
   });
-
+  //First time application renders, it gets user data
   useEffect(() => {
     getUser();
   }, []);
@@ -42,9 +42,12 @@ export default function UserProvider({ children }) {
     }
   };
   /* --------------------------------- */
+  //Adding gift points
+
+  /* --------------------------------- */
 
   return (
-    <UserContext.Provider value={{ userPoints, userName }}>
+    <UserContext.Provider value={{ userPoints, setUserPoints, userName }}>
       {children}
     </UserContext.Provider>
   );

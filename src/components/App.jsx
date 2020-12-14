@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { filterState } from "../assets/filtersData";
 import { callProducts } from "../assets/apiData";
 //context provider
-import UserProvider from "../assets/userData";
+import UserProvider from "../context/userProvider";
 //components
 import {
   Header,
