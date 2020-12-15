@@ -39,9 +39,8 @@ const Product = ({ id, category, cost, photo, name }) => {
   const redeem = async (productId) => {
     try {
       //data: async call, it returns promise
-      const redeemData = await redeemProduct(productId);
+      await redeemProduct(productId);
       //success notification
-      console.log(redeemData);
       setSuccessModal(true);
       callHistory();
     } catch (error) {
