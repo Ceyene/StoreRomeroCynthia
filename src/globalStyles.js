@@ -51,13 +51,13 @@ export const Info = styled.h6`
   font-size: 0.9rem;
   font-family: "JetBrains Mono", monospace;
   font-weight: 100;
-  color: #888888;
+  color: ${(props) => (props.Modal ? "#5F5F5F" : "#888888")};
 `;
 
 export const SecondaryTitle = styled.h4`
   font-size: 1.3rem;
   font-family: "JetBrains Mono", monospace;
-  color: #18689d;
+  color: ${(props) => (props.Modal ? "#FFFFFF" : "#18689d")};
   margin: ${(props) => (props.Notification ? "2.5rem 0" : "0")};
 `;
 

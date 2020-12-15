@@ -28,7 +28,7 @@ export const ProductRedeem = styled.div`
     justify-content: space-evenly;
     padding: 0;
     position: absolute;
-    z-index: 9;
+    z-index: 2;
     top: 0;
     right: 0;
     left: 0;

@@ -1,11 +1,13 @@
 //dependencies
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 //context
 import { UserContext } from "../../context/userProvider";
 //assets
-import { redeemProduct } from "../../assets/apiData";
+import { redeemProduct, callHistory } from "../../assets/apiData";
 //components
 import ProductIndicator from "../ProductIndicator/ProductIndicator";
+import SuccessModal from "../SuccessModal/SuccessModal";
+import ErrorModal from "../ErrorModal/ErrorModal";
 //styled components
 import {
   ProductContainer,
@@ -29,18 +31,36 @@ const Product = ({ id, category, cost, photo, name }) => {
   //extracting points data from Provider UserContext
   const { userPoints } = useContext(UserContext);
   const points = userPoints.data;
+  //state that handles modal opening
+  const [successModal, setSuccessModal] = useState(false);
+  const [errorModal, setErrorModal] = useState(false);
+  /* --------------------------------- */
   //Redeeming products with user points
   const redeem = async (productId) => {
     try {
       //data: async call, it returns promise
       const redeemData = await redeemProduct(productId);
       //success notification
-      alert(redeemData);
+      console.log(redeemData);
+      setSuccessModal(true);
+      callHistory();
     } catch (error) {
       //error notification
-      alert("error", error);
+      setErrorModal(true);
     }
   };
+  /* --------------------------------- */
+  //función para manejar cierre del modal
+  const handleCloseSuccess = (e) => {
+    setSuccessModal(false);
+  };
+  /* --------------------------------- */
+  //función para manejar cierre del modal
+  const handleCloseError = (e) => {
+    setErrorModal(false);
+  };
+  /* --------------------------------- */
+
   return (
     <ProductContainer>
       <ProductIndicator cost={cost} points={points} />
@@ -66,6 +86,18 @@ const Product = ({ id, category, cost, photo, name }) => {
           </ProductButton>
         )}
       </ProductRedeem>
+      <SuccessModal
+        isOpen={successModal}
+        onClose={() => {
+          handleCloseSuccess();
+        }}
+      />
+      <ErrorModal
+        isOpen={errorModal}
+        onClose={() => {
+          handleCloseError();
+        }}
+      />
     </ProductContainer>
   );
 };

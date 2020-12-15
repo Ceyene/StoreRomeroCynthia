@@ -11,7 +11,7 @@ export const StyledProdIndicator = styled.span`
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
-  z-index: 10;
+  z-index: 3;
   display: flex;
   align-items: center;
   justify-content: ${(props) => (props.Message ? "space-around" : "center")};
