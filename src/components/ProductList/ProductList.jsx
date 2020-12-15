@@ -2,13 +2,20 @@
 import React from "react";
 //components
 import Product from "../Product/Product";
+//assets
+import { paginationData } from "../../assets/paginationData";
 //styled components
 import { ProductListContainer } from "./ProductList.elements";
 import { FlexContainer, SecondaryTitle } from "../../globalStyles";
 
 //it renders all available products
-const ProductList = ({ products }) => {
+const ProductList = ({ products, currentPage }) => {
+  //info from products data
   const { loading, error, data } = products;
+  //products to render per page
+  const perPage = 16;
+  /* --------------------------------- */
+  //loading products data
   if (loading === true) {
     return (
       //It renders loading message
@@ -26,10 +33,12 @@ const ProductList = ({ products }) => {
       </FlexContainer>
     );
   }
-
+  /* --------------------------------- */
+  //it paginates all products received
+  const pageData = paginationData(data, perPage, currentPage);
   return (
     <ProductListContainer>
-      {data.map((product, index) => (
+      {pageData.map((product, index) => (
         <Product
           key={`prod${index}`}
           id={product._id}

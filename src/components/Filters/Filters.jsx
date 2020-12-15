@@ -11,7 +11,14 @@ import {
 } from "./Filters.elements";
 import { Title } from "../../globalStyles";
 
-const Filters = ({ filters, setFilters, getData, products, setProducts }) => {
+const Filters = ({
+  filters,
+  setFilters,
+  getData,
+  products,
+  setProducts,
+  currentPage,
+}) => {
   //when "filters" state updates,
   //this function compares and change array in "products" state
   useEffect(() => {
@@ -65,7 +72,7 @@ const Filters = ({ filters, setFilters, getData, products, setProducts }) => {
   return (
     <FiltersContainer>
       <PaginationContainer>
-        <PaginationInfo prodList={products} />
+        <PaginationInfo prodList={products} currentPage={currentPage} />
       </PaginationContainer>
       <Title>Sort by:</Title>
       {filters.map((filter) => (

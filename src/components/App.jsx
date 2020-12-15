@@ -27,7 +27,8 @@ function App() {
   });
   //state with select filters value
   const [filters, setFilters] = useState(filterState);
-
+  //state with number of current page
+  const [currentPage, setCurrentPage] = useState(1);
   /* --------------------------------- */
   //First time it renders, it calls API and gets products data
   useEffect(() => {
@@ -50,7 +51,14 @@ function App() {
     }
   };
   /* --------------------------------- */
-
+  //increase page
+  const next = (current, max) => {
+    setCurrentPage((current) => Math.min(current + 1, max));
+  };
+  //decrease page
+  const prev = (current) => {
+    setCurrentPage((current) => Math.max(current - 1, 1));
+  };
   /* --------------------------------- */
 
   return (
@@ -65,10 +73,16 @@ function App() {
           getData={getData}
           products={products.data}
           setProducts={setProducts}
+          currentPage={currentPage}
         />
-        <ProductList products={products} setProducts={setProducts} />
-        <Pagination products={products.data} />
-        <HistoryContainer />
+        <ProductList products={products} currentPage={currentPage} />
+        <Pagination
+          products={products.data}
+          currentPage={currentPage}
+          next={next}
+          prev={prev}
+        />
+        <HistoryContainer currentPage={currentPage} next={next} prev={prev} />
         <Footer />
       </div>
     </UserProvider>

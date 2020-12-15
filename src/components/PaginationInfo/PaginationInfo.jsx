@@ -4,11 +4,14 @@ import React from "react";
 import { PaginationText } from "../../globalStyles";
 
 //it renders pagination information
-const PaginationInfo = ({ prodList }) => {
+const PaginationInfo = ({ currentPage, prodList }) => {
   if (prodList === undefined) {
     return <PaginationText>Loading...</PaginationText>;
   }
-  return <PaginationText>16 of {prodList.length} products</PaginationText>;
+  if (currentPage === 2) {
+    return <PaginationText>products 16 to {prodList.length}</PaginationText>;
+  }
+  return <PaginationText>products 1 to 16</PaginationText>;
 };
 
 export default PaginationInfo;
