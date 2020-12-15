@@ -6,10 +6,7 @@ import { callHistory } from "../../assets/apiData";
 import History from "../History/History";
 //styled components
 import { StyledHistory } from "./HistoryContainer.elements";
-import { Title, Button, FlexContainer } from "../../globalStyles";
-//styled icons
-import { ArrowRightShort } from "@styled-icons/bootstrap/ArrowRightShort";
-import { ArrowLeftShort } from "@styled-icons/bootstrap/ArrowLeftShort";
+import { Title } from "../../globalStyles";
 
 const HistoryContainer = () => {
   //state with redeem history
@@ -45,14 +42,6 @@ const HistoryContainer = () => {
     <StyledHistory>
       <Title>Redeem History</Title>
       <History history={history} />
-      <FlexContainer>
-        <Button color="#888888" borderColor="#888888" bgColor="transparent">
-          <ArrowLeftShort />
-        </Button>
-        <Button color="#888888" borderColor="#888888" bgColor="transparent">
-          <ArrowRightShort />
-        </Button>
-      </FlexContainer>
     </StyledHistory>
   );
 };

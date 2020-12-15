@@ -6,15 +6,13 @@ import { callProducts } from "../assets/apiData";
 //context provider
 import UserProvider from "../context/userProvider";
 //components
-import {
-  Header,
-  Hero,
-  Filters,
-  ProductList,
-  Pagination,
-  HistoryContainer,
-  Footer,
-} from "./";
+import Header from "./Header/Header";
+import Hero from "./Hero/Hero";
+import Filters from "./Filters/Filters";
+import ProductList from "./ProductList/ProductList";
+import Pagination from "./Pagination/Pagination";
+import HistoryContainer from "./HistoryContainer/HistoryContainer";
+import Footer from "./Footer/Footer";
 //styles
 import GlobalStyle from "../globalStyles";
 

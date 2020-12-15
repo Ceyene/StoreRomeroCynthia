@@ -9,9 +9,9 @@ const PaginationInfo = ({ currentPage, prodList }) => {
     return <PaginationText>Loading...</PaginationText>;
   }
   if (currentPage === 2) {
-    return <PaginationText>products 16 to {prodList.length}</PaginationText>;
+    return <PaginationText>Products 16 to {prodList.length}</PaginationText>;
   }
-  return <PaginationText>products 1 to 16</PaginationText>;
+  return <PaginationText>Products 1 to 16</PaginationText>;
 };
 
 export default PaginationInfo;

@@ -8,24 +8,23 @@ import { Coins } from "@styled-icons/fa-solid/Coins";
 
 //it renders indicator of products redeem availability
 const ProductIndicator = ({ cost, points }) => {
-  if (points !== undefined) {
-    //notification: when user doesn't have enough points
-    if (points < cost) {
-      return (
-        <StyledProdIndicator Message>
-          You need {cost - points} <Coins color="gold" />
-        </StyledProdIndicator>
-      );
-    }
-    //it renders when user has enough points for this product
+  if (points === undefined) {
+    return <StyledProdIndicator Message>Loading...</StyledProdIndicator>;
+  }
+  //notification: when user doesn't have enough points
+  if (points < cost) {
     return (
-      <StyledProdIndicator>
-        <BagFill />
+      <StyledProdIndicator Message>
+        You need {cost - points} <Coins color="gold" />
       </StyledProdIndicator>
     );
-  } else {
-    return;
   }
+  //it renders when user has enough points for this product
+  return (
+    <StyledProdIndicator>
+      <BagFill />
+    </StyledProdIndicator>
+  );
 };
 
 export default ProductIndicator;

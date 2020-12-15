@@ -62,7 +62,7 @@ export const SecondaryTitle = styled.h4`
 `;
 
 export const ProductImg = styled.img`
-  width: 100%;
+  width: ${(props) => (props.Small ? "25%" : "100%")};
 `;
 
 export const PaginationText = styled.p`

@@ -6,8 +6,11 @@ import HistoryProduct from "../HistoryProduct/HistoryProduct";
 import { HistoryList } from "./History.elements";
 import { FlexContainer, SecondaryTitle } from "../../globalStyles";
 
+//it renders history of redeemed products
 const History = ({ history }) => {
+  //state with products history data
   const { loading, error, data } = history;
+  /* --------------------------------- */
   if (loading === true) {
     return (
       //It renders loading message
@@ -25,7 +28,8 @@ const History = ({ history }) => {
       </FlexContainer>
     );
   }
-  //it renders history of redeemed products
+  /* --------------------------------- */
+  //it renders a list of redeemed products
   return Object.keys(data).length !== 0 ? (
     <HistoryList>
       {data.map((prod, index) => (

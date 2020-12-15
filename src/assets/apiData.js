@@ -45,7 +45,7 @@ export const sendPoints = async (giftPoints) => {
   await fetch(pointsEndpoint, requestOptions)
     .then((response) => response.json())
     .then((result) => {
-      alert(result.message);
+      //alert(result.message);
       return result["New Points"];
     })
     .catch((error) => alert("error", error));
