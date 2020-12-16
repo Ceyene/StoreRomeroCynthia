@@ -1,7 +1,7 @@
 //dependencies
 import React, { useState, useEffect } from "react";
 //assets
-import { filterState } from "../assets/filtersData";
+import { dataPrice, dataCategory } from "../assets/filtersData";
 import { callProducts } from "../assets/apiData";
 //context provider
 import UserProvider from "../context/userProvider";
@@ -24,7 +24,8 @@ function App() {
     data: undefined,
   });
   //state with select filters value
-  const [filters, setFilters] = useState(filterState);
+  const [priceFilter, setPriceFilter] = useState(dataPrice);
+  const [categoryFilter, setCategoryFilter] = useState(dataCategory);
   //state with number of current page
   const [currentPage, setCurrentPage] = useState(1);
   /* --------------------------------- */
@@ -66,8 +67,10 @@ function App() {
         <Header />
         <Hero sectionName="Electronics" />
         <Filters
-          filters={filters}
-          setFilters={setFilters}
+          priceFilter={priceFilter}
+          setPriceFilter={setPriceFilter}
+          categoryFilter={categoryFilter}
+          setCategoryFilter={setCategoryFilter}
           getData={getData}
           products={products.data}
           setProducts={setProducts}

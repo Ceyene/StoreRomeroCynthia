@@ -6,7 +6,6 @@ import { StyledModal, ModalContainer } from "./Modal.elements";
 
 function Modal(props) {
   const { isOpen } = props;
-  console.log(isOpen);
   if (!isOpen) {
     return null;
   }

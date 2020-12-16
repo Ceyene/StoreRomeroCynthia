@@ -11,58 +11,79 @@ import {
 } from "./Filters.elements";
 import { Title } from "../../globalStyles";
 
-const Filters = ({
-  filters,
-  setFilters,
-  getData,
-  products,
-  setProducts,
-  currentPage,
-}) => {
-  //when "filters" state updates,
+const Filters = (props) => {
+  const {
+    priceFilter,
+    setPriceFilter,
+    categoryFilter,
+    setCategoryFilter,
+    getData,
+    products,
+    setProducts,
+    currentPage,
+  } = props;
+  const { idPr, namePr, valuePr, optionsPr } = priceFilter;
+  const { idCat, nameCat, valueCat, optionsCat } = categoryFilter;
+  //when "prices" filter updates,
   //this function compares and change array in "products" state
   useEffect(() => {
-    productFilters();
+    filterPrice();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filters]);
+  }, [priceFilter]);
   /* --------------------------------- */
-  //handles state from filters
-  const handleFilters = (i) => {
-    return (e) => {
-      const copyFilters = [...filters];
-      copyFilters[i].value = e.target.value;
-      setFilters(copyFilters);
-    };
+  //when "category" filter updates,
+  //this function compares and change array in "products" state
+  useEffect(() => {
+    filterCategory();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [categoryFilter]);
+  /* --------------------------------- */
+  //handles state from price filter
+  const handlePrice = (e) => {
+    let copyPrice = valuePr;
+    copyPrice = e.target.value;
+    setPriceFilter({ ...priceFilter, valuePr: copyPrice });
+  };
+  //handles state from category filter
+  const handleCategory = (e) => {
+    let copyCategory = valueCat;
+    copyCategory = e.target.value;
+    setCategoryFilter({ ...categoryFilter, valueCat: copyCategory });
+    console.log(categoryFilter);
   };
   //it resets state from filters
-  //country, price and size reset
+  //price and category reset
   const handleReset = () => {
-    const filtersCopy = [...filters];
-    filtersCopy[0].value = "Prices";
-    filtersCopy[1].value = "Categories";
-    setFilters(filtersCopy);
+    setPriceFilter({ ...priceFilter, valuePr: "Prices" });
+    setCategoryFilter({ ...categoryFilter, valueCat: "Categories" });
     //renderize all, without filters
     getData();
   };
   /* --------------------------------- */
   //it filters products by price
-  const productFilters = () => {
-    if (filters[0].value !== "Prices" && products !== undefined) {
-      if (filters[0].value === "Lowest Price") {
-        const lowerPriceFirst = products.sort((a, b) => a.cost - b.cost);
-        return setProducts({ data: lowerPriceFirst });
-      } else if (filters[0].value === "Highest Price") {
-        const higherPriceFirst = products.sort((a, b) => b.cost - a.cost);
-        return setProducts({ data: higherPriceFirst });
+  const filterPrice = () => {
+    if (products !== undefined) {
+      if (valuePr === "Lowest Price") {
+        return cheapFirst();
+      } else if (valuePr === "Highest Price") {
+        return expensiveFirst();
       }
     }
-    categoryFilters();
   };
+  const cheapFirst = () => {
+    const lowerPriceFirst = products.sort((a, b) => a.cost - b.cost);
+    return setProducts({ data: lowerPriceFirst });
+  };
+  const expensiveFirst = () => {
+    const higherPriceFirst = products.sort((a, b) => b.cost - a.cost);
+    return setProducts({ data: higherPriceFirst });
+  };
+  /* --------------------------------- */
   //it filters products by category
-  const categoryFilters = () => {
-    if (filters[1].value !== "Categories" && products !== undefined) {
+  const filterCategory = () => {
+    if (categoryFilter.value !== "Categories" && products !== undefined) {
       let productsCopy = products.filter((product) => {
-        return product.category === filters[1].value;
+        return product.category === valueCat;
       });
       return setProducts({ data: productsCopy });
     }
@@ -75,15 +96,24 @@ const Filters = ({
         <PaginationInfo prodList={products} currentPage={currentPage} />
       </PaginationContainer>
       <Title>Sort by:</Title>
-      {filters.map((filter) => (
-        <Filter
-          key={filter.id}
-          handleFilters={handleFilters(filter.id)}
-          data={filter.options}
-          name={filter.name}
-          value={filter.value}
-        />
-      ))}
+      <Filter
+        key={idPr}
+        handleFilters={(e) => {
+          handlePrice(e);
+        }}
+        data={optionsPr}
+        name={namePr}
+        value={valuePr}
+      />
+      <Filter
+        key={idCat}
+        handleFilters={(e) => {
+          handleCategory(e);
+        }}
+        data={optionsCat}
+        name={nameCat}
+        value={valueCat}
+      />
       <ResetButton onClick={handleReset}>Reset filters</ResetButton>
     </FiltersContainer>
   );
