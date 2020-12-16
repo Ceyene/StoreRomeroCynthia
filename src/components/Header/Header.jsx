@@ -29,7 +29,6 @@ const Header = () => {
   //update points when adding gift points
   const addPoints = async (giftPoints) => {
     try {
-      console.log(userPoints);
       //initial state: loading and without errors
       setUserPoints({ ...userPoints, loading: true, error: null });
       //data: async call, it returns promise

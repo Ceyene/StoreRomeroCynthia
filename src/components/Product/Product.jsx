@@ -3,7 +3,7 @@ import React, { useState, useContext } from "react";
 //context
 import { UserContext } from "../../context/userProvider";
 //assets
-import { redeemProduct, callHistory } from "../../assets/apiData";
+import { redeemProduct } from "../../assets/apiData";
 //components
 import ProductIndicator from "../ProductIndicator/ProductIndicator";
 import SuccessModal from "../SuccessModal/SuccessModal";
@@ -29,20 +29,21 @@ import { Coins } from "@styled-icons/fa-solid/Coins";
 //it renders each product available
 const Product = ({ id, category, cost, photo, name }) => {
   //extracting points data from Provider UserContext
-  const { userPoints } = useContext(UserContext);
+  const { userPoints, setUserPoints } = useContext(UserContext);
   const points = userPoints.data;
   //state that handles modal opening
   const [successModal, setSuccessModal] = useState(false);
   const [errorModal, setErrorModal] = useState(false);
   /* --------------------------------- */
   //Redeeming products with user points
-  const redeem = async (productId) => {
+  const redeem = async (productId, cost) => {
     try {
       //data: async call, it returns promise
       await redeemProduct(productId);
+      //updating points
+      setUserPoints({ ...userPoints, data: points - cost });
       //success notification
       setSuccessModal(true);
-      callHistory();
     } catch (error) {
       //error notification
       setErrorModal(true);
@@ -78,7 +79,7 @@ const Product = ({ id, category, cost, photo, name }) => {
         {points >= cost && (
           <ProductButton
             onClick={() => {
-              redeem(id);
+              redeem(id, cost);
             }}
           >
             Redeem now

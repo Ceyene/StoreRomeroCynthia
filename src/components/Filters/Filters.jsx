@@ -49,7 +49,6 @@ const Filters = (props) => {
     let copyCategory = valueCat;
     copyCategory = e.target.value;
     setCategoryFilter({ ...categoryFilter, valueCat: copyCategory });
-    console.log(categoryFilter);
   };
   //it resets state from filters
   //price and category reset

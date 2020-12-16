@@ -43,9 +43,6 @@ export default function UserProvider({ children }) {
     }
   };
   /* --------------------------------- */
-  //Adding gift points
-
-  /* --------------------------------- */
 
   return (
     <UserContext.Provider value={{ userPoints, setUserPoints, userName }}>
