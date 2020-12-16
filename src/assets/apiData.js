@@ -1,7 +1,7 @@
 const myHeaders = {
   "Content-Type": "application/json",
   Authorization:
-    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmNmZTc2MDI2ZjdkMjAwMjA0MTE0YzgiLCJpYXQiOjE2MDc0NjA3MDR9.oJ_SM-h-ATKByizUQ_injP39Cn_TE45KBBOHGD_JBng",
+    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmQ5YWJhYjI2ZjdkMjAwMjA0MTE0Y2QiLCJpYXQiOjE2MDgxMDA3Nzl9.bjQRXSEcQuF_zFF_HS0NuNT0YHRE-UDAxlGe5q9EZdU",
 };
 const productsEndpoint = "https://coding-challenge-api.aerolab.co/products";
 const userEndpoint = "https://coding-challenge-api.aerolab.co/user/me";
