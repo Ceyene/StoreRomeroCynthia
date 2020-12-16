@@ -8,7 +8,7 @@ export const StyledModal = styled.div`
   bottom: 0;
   right: 0;
   background-color: rgba(0, 0, 0, 0.3);
-  z-index: 4;
+  z-index: 5;
   display: flex;
   flex-direction: column;
   align-items: center;

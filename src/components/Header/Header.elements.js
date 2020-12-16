@@ -57,12 +57,28 @@ export const Points = styled.div`
 
 export const GiftPoints = styled.div`
   text-align: center;
+  background-color: rgba(0, 0, 0, 0.9);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 4;
+
+  @media screen and (min-width: 900px) {
+    position: relative;
+    display: block;
+    background-color: transparent;
+    width: auto;
+  }
 `;
 
 export const GiftButton = styled.button`
   text-align: center;
   color: #fdfcfb;
-  background-color: rgba(24, 104, 157, 0.5);
+  background-color: rgba(24, 104, 157, 0.6);
   border: none;
   padding: 0.4rem;
   margin: 0.25rem;

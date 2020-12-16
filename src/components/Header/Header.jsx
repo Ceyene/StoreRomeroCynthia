@@ -55,7 +55,7 @@ const Header = () => {
           </StyledIcon>
         </Points>
         <GiftPoints>
-          <Title>Get Free Points!</Title>
+          <Title Gift>Get Free Points!</Title>
           <Points Gift>
             <GiftButton
               onClick={() => {

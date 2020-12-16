@@ -40,10 +40,11 @@ export const Title = styled.h3`
   font-size: 1rem;
   font-family: "Rubik", sans-serif;
   font-weight: 300;
-  color: #888888;
+  color: ${(props) => (props.Gift ? "#FFFFFF" : "#888888")};
 
   @media screen and (min-width: 900px) {
     font-size: 1.1rem;
+    color: ${(props) => props.Gift && "#888888"};
   }
 `;
 
