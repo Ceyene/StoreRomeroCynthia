@@ -41,7 +41,7 @@ const Pagination = ({ products, currentPage, next, prev }) => {
             <ArrowLeftShort />
           </Button>
         )}
-        {page === 1 && (
+        {page === 1 && products !== undefined && products.length > 16 && (
           <Button
             onClick={() => {
               nextPage();

@@ -11,6 +11,9 @@ const PaginationInfo = ({ currentPage, prodList }) => {
   if (currentPage === 2) {
     return <PaginationText>Products 16 to {prodList.length}</PaginationText>;
   }
+  if (prodList.length < 16) {
+    return <PaginationText>Products 1 to {prodList.length}</PaginationText>;
+  }
   return <PaginationText>Products 1 to 16</PaginationText>;
 };
 
