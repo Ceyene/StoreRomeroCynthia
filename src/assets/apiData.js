@@ -11,11 +11,11 @@ const redeemEndpoint = "https://coding-challenge-api.aerolab.co/redeem";
 
 /* --------------------------------- */
 //it calls api and gets data
-async function callApi(endpoint, headers) {
+const callApi = async (endpoint, headers) => {
   const response = await fetch(endpoint, { headers });
   const data = await response.json();
   return data;
-}
+};
 //gets products data
 export const callProducts = () => {
   return callApi(productsEndpoint, myHeaders);
@@ -41,14 +41,15 @@ export const sendPoints = async (giftPoints) => {
     body: raw,
     redirect: "follow",
   };
+
   //sending data to api
-  await fetch(pointsEndpoint, requestOptions)
-    .then((response) => response.json())
-    .then((result) => {
-      //alert(result.message);
-      return result["New Points"];
-    })
-    .catch((error) => alert("error", error));
+  try {
+    const response = await fetch(pointsEndpoint, requestOptions);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    return error;
+  }
 };
 /* -------------------------------- */
 //it exchanges points for products
@@ -63,12 +64,11 @@ export const redeemProduct = async (productId) => {
     redirect: "follow",
   };
   //sending data to api
-  fetch(redeemEndpoint, requestOptions)
-    .then((response) => response.text())
-    .then((result) => {
-      return result;
-    })
-    .catch((error) => {
-      return error;
-    });
+  try {
+    const response = await fetch(redeemEndpoint, requestOptions);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    return error;
+  }
 };

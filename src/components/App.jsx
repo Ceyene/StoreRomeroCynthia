@@ -32,21 +32,22 @@ function App() {
   //First time it renders, it calls API and gets products data
   useEffect(() => {
     getData();
+    // eslint-disable-next-line
   }, []);
   /* --------------------------------- */
   //Getting products data
   const getData = async () => {
     //initial state: loading and without errors
-    setProducts({ loading: true, error: null });
+    setProducts({ ...products, loading: true, error: null });
 
     try {
       //data: async call, it returns promise
       const productsData = await callProducts();
       //stop loading and presenting data
-      setProducts({ loading: false, data: productsData });
+      setProducts({ ...products, loading: false, data: productsData });
     } catch (error) {
       //stop loading and presenting error
-      setProducts({ loading: false, error });
+      setProducts({ ...products, loading: false, error });
     }
   };
   /* --------------------------------- */

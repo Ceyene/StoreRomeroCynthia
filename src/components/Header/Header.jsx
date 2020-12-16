@@ -1,7 +1,7 @@
 //dependencies
 import React, { useContext } from "react";
 //assets
-import { sendPoints, callUser } from "../../assets/apiData";
+import { sendPoints } from "../../assets/apiData";
 //context
 import { UserContext } from "../../context/userProvider";
 //logo image
@@ -29,16 +29,17 @@ const Header = () => {
   //update points when adding gift points
   const addPoints = async (giftPoints) => {
     try {
+      console.log(userPoints);
       //initial state: loading and without errors
-      setUserPoints({ loading: true, error: null });
+      setUserPoints({ ...userPoints, loading: true, error: null });
       //data: async call, it returns promise
-      const newPoints = await sendPoints(giftPoints);
+      const getPoints = await sendPoints(giftPoints);
+      const newPoints = getPoints["New Points"];
       //presenting data
-      setUserPoints({ loading: false, data: newPoints });
-      callUser();
+      return setUserPoints({ ...userPoints, loading: false, data: newPoints });
     } catch (error) {
       //presenting error
-      return setUserPoints({ loading: false, error });
+      return setUserPoints({ ...userPoints, loading: false, error });
     }
   };
   /* --------------------------------- */
