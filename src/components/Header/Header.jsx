@@ -68,7 +68,7 @@ const Header = () => {
             </GiftButton>
             <GiftButton
               onClick={() => {
-                sendPoints(5000);
+                addPoints(5000);
               }}
             >
               {" "}
@@ -76,7 +76,7 @@ const Header = () => {
             </GiftButton>
             <GiftButton
               onClick={() => {
-                sendPoints(7500);
+                addPoints(7500);
               }}
             >
               {" "}

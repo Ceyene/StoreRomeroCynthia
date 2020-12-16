@@ -22,23 +22,24 @@ export default function UserProvider({ children }) {
   //First time application renders, it gets user data
   useEffect(() => {
     getUser();
+    // eslint-disable-next-line
   }, []);
   /* --------------------------------- */
   //Getting user data
   const getUser = async () => {
     //initial state: loading and without errors
-    setUserPoints({ loading: true, error: null });
+    setUserPoints({ ...userPoints, loading: true, error: null });
 
     try {
       //data: async call, it returns promise
       const user = await callUser();
       //stop loading and presenting data
-      setUserPoints({ loading: false, data: user.points });
-      setUserName({ loading: false, data: user.name });
+      setUserPoints({ ...userPoints, loading: false, data: user.points });
+      setUserName({ ...userName, loading: false, data: user.name });
     } catch (error) {
       //stop loading and presenting error
-      setUserPoints({ loading: false, error });
-      setUserName({ loading: false, error });
+      setUserPoints({ ...userPoints, loading: false, error });
+      setUserName({ ...userName, loading: false, error });
     }
   };
   /* --------------------------------- */
