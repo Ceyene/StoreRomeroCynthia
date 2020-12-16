@@ -28,6 +28,8 @@ function App() {
   const [categoryFilter, setCategoryFilter] = useState(dataCategory);
   //state with number of current page
   const [currentPage, setCurrentPage] = useState(1);
+  //state that handles updating history after redeeming products
+  const [updating, setUpdating] = useState(false);
   /* --------------------------------- */
   //First time it renders, it calls API and gets products data
   useEffect(() => {
@@ -77,14 +79,19 @@ function App() {
           setProducts={setProducts}
           currentPage={currentPage}
         />
-        <ProductList products={products} currentPage={currentPage} />
+        <ProductList
+          products={products}
+          currentPage={currentPage}
+          updating={updating}
+          setUpdating={setUpdating}
+        />
         <Pagination
           products={products.data}
           currentPage={currentPage}
           next={next}
           prev={prev}
         />
-        <HistoryContainer currentPage={currentPage} next={next} prev={prev} />
+        <HistoryContainer updating={updating} />
         <Footer />
       </div>
     </UserProvider>

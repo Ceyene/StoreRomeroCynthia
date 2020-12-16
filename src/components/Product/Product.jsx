@@ -27,7 +27,8 @@ import {
 import { Coins } from "@styled-icons/fa-solid/Coins";
 
 //it renders each product available
-const Product = ({ id, category, cost, photo, name }) => {
+const Product = (props) => {
+  const { id, category, cost, photo, name, updating, setUpdating } = props;
   //extracting points data from Provider UserContext
   const { userPoints, setUserPoints } = useContext(UserContext);
   const points = userPoints.data;
@@ -42,6 +43,8 @@ const Product = ({ id, category, cost, photo, name }) => {
       await redeemProduct(productId);
       //updating points
       setUserPoints({ ...userPoints, data: points - cost });
+      //updating history
+      setUpdating(!updating);
       //success notification
       setSuccessModal(true);
     } catch (error) {

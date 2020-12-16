@@ -9,7 +9,7 @@ import { ProductListContainer } from "./ProductList.elements";
 import { FlexContainer, SecondaryTitle } from "../../globalStyles";
 
 //it renders all available products
-const ProductList = ({ products, currentPage }) => {
+const ProductList = ({ products, currentPage, updating, setUpdating }) => {
   //info from products data
   const { loading, error, data } = products;
   //products to render per page
@@ -46,6 +46,8 @@ const ProductList = ({ products, currentPage }) => {
           cost={product.cost}
           photo={product.img.hdUrl}
           name={product.name}
+          updating={updating}
+          setUpdating={setUpdating}
         />
       ))}
     </ProductListContainer>

@@ -8,7 +8,7 @@ import History from "../History/History";
 import { StyledHistory } from "./HistoryContainer.elements";
 import { Title } from "../../globalStyles";
 
-const HistoryContainer = () => {
+const HistoryContainer = ({ updating }) => {
   //state with redeem history
   const [history, setHistory] = useState({
     loading: true,
@@ -20,6 +20,11 @@ const HistoryContainer = () => {
   useEffect(() => {
     getHistory();
   }, []);
+  /* --------------------------------- */
+  //When redeeming any product, it calls API and gets redeem history data
+  useEffect(() => {
+    getHistory();
+  }, [updating]);
   /* --------------------------------- */
   //Getting products data
   const getHistory = async () => {
