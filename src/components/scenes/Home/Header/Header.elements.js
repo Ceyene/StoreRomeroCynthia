@@ -33,7 +33,7 @@ export const LogoImg = styled.img`
   }
 `;
 
-export const UserInfo = styled.div`
+export const UserInfo = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
