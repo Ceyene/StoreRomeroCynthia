@@ -11,4 +11,9 @@ export const SuccessBackground = styled.div`
   align-items: center;
   padding: 1rem;
   border-radius: 1rem;
+
+  svg {
+    fill: #fdfcfb;
+    width: 2.5rem;
+  }
 `;

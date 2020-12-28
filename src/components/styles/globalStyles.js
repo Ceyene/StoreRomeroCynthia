@@ -52,7 +52,7 @@ export const Info = styled.h6`
   font-size: 0.9rem;
   font-family: "JetBrains Mono", monospace;
   font-weight: 100;
-  color: ${(props) => (props.Modal ? "#5F5F5F" : "#888888")};
+  color: ${(props) => (props.Modal ? "#464646" : "#888888")};
 `;
 
 export const SecondaryTitle = styled.h4`
