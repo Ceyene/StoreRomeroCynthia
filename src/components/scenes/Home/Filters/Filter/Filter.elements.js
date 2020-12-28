@@ -18,7 +18,7 @@ export const StyledFilter = styled.button`
   will-change: transform;
 
   &:active {
-    transform: scale(0.9);
+    transform: scale(0.95);
   }
 
   @media screen and (min-width: 900px) {

@@ -1,7 +1,7 @@
 //dependencies
 import React, { useState, useEffect } from "react";
 //assets
-import { callHistory } from "../../../services/apiData";
+import { callHistory } from "../../../services/apiUser";
 //components
 import History from "./History/History";
 //styled components

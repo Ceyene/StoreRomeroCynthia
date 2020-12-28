@@ -1,7 +1,7 @@
 //Dependencies
 import React, { useState, useEffect } from "react";
 //Assets
-import { callUser } from "../services/apiData";
+import { callUser } from "../services/apiUser";
 
 //Creating context
 export const UserContext = React.createContext();

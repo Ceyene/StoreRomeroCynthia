@@ -3,7 +3,7 @@ import React, { useState, useContext } from "react";
 //context
 import { UserContext } from "../../../../../context/userProvider";
 //assets
-import { redeemProduct } from "../../../../../services/apiData";
+import { redeemProduct } from "../../../../../services/apiProduct";
 //components
 import ProductIndicator from "../ProductIndicator/ProductIndicator";
 import SuccessModal from "../SuccessModal/SuccessModal";

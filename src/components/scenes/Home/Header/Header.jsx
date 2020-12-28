@@ -1,7 +1,7 @@
 //dependencies
 import React, { useContext } from "react";
 //assets
-import { sendPoints } from "../../../../services/apiData";
+import { sendPoints } from "../../../../services/apiUser";
 //context
 import { UserContext } from "../../../../context/userProvider";
 //logo image

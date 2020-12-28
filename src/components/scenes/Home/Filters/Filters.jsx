@@ -1,7 +1,7 @@
 //dependencies
 import React, { useContext } from "react";
 //api
-import { callProducts } from "../../../../services/apiData";
+import { callProducts } from "../../../../services/apiProduct";
 //context
 import { ProductContext } from "../../../../context/productProvider";
 //components
