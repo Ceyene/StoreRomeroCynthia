@@ -1,13 +1,13 @@
 //dependencies
 import React from "react";
 //styled components
-import { StyledProdIndicator } from "./ProductIndicator.elements";
+import { StyledProdIndicator, StyledInd } from "./ProductIndicator.elements";
 //styled icons
 import { BagFill } from "@styled-icons/bootstrap/BagFill";
 import { Coins } from "@styled-icons/fa-solid/Coins";
 
 //it renders indicator of products redeem availability
-const ProductIndicator = ({ cost, points }) => {
+const ProductIndicator = ({ cost, points, setHover }) => {
   if (points === undefined) {
     return <StyledProdIndicator Message>Loading...</StyledProdIndicator>;
   }
@@ -22,7 +22,7 @@ const ProductIndicator = ({ cost, points }) => {
   //it renders when user has enough points for this product
   return (
     <StyledProdIndicator>
-      <BagFill />
+      <StyledInd onClick={setHover}>Click here to</StyledInd> <BagFill />
     </StyledProdIndicator>
   );
 };

@@ -6,25 +6,17 @@ import { UserContext } from "../../../../../context/userProvider";
 import { redeemProduct } from "../../../../../services/apiProduct";
 //components
 import ProductIndicator from "../ProductIndicator/ProductIndicator";
+import ProductHover from "../ProductHover/ProductHover";
 import SuccessModal from "../SuccessModal/SuccessModal";
 import ErrorModal from "../ErrorModal/ErrorModal";
 //styled components
-import {
-  ProductContainer,
-  StyledProduct,
-  ProductRedeem,
-  Value,
-  ProductValue,
-} from "./Product.elements";
+import { ProductContainer, StyledProduct } from "./Product.elements";
 import {
   ProductImg,
   ContainerInfo,
   SecondaryTitle,
   Info,
-  ActionButton,
 } from "../../../../styles/globalStyles";
-//styled icons
-import { Coins } from "@styled-icons/fa-solid/Coins";
 
 //it renders each product available
 const Product = (props) => {
@@ -32,6 +24,8 @@ const Product = (props) => {
   //extracting points data from Provider UserContext
   const { userPoints, setUserPoints } = useContext(UserContext);
   const points = userPoints.data;
+  //state that handles product hover
+  const [hover, setHover] = useState(false);
   //state that handles modal opening
   const [successModal, setSuccessModal] = useState(false);
   const [errorModal, setErrorModal] = useState(false);
@@ -65,8 +59,15 @@ const Product = (props) => {
   /* --------------------------------- */
 
   return (
-    <ProductContainer>
-      <ProductIndicator cost={cost} points={points} />
+    <ProductContainer
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+    >
+      <ProductIndicator
+        cost={cost}
+        points={points}
+        setHover={() => setHover(!hover)}
+      />
       <StyledProduct>
         <ProductImg src={photo} alt={name} />
         <ContainerInfo>
@@ -74,22 +75,9 @@ const Product = (props) => {
           <SecondaryTitle>{name}</SecondaryTitle>
         </ContainerInfo>
       </StyledProduct>
-      <ProductRedeem>
-        <Value>
-          <ProductValue>{cost}</ProductValue>
-          <Coins color="gold" />
-        </Value>
-        {points >= cost && (
-          <ActionButton
-            color="#18689d"
-            onClick={() => {
-              redeem(id, cost);
-            }}
-          >
-            Redeem now
-          </ActionButton>
-        )}
-      </ProductRedeem>
+      {hover && (
+        <ProductHover cost={cost} points={points} id={id} redeem={redeem} />
+      )}
       <SuccessModal
         isOpen={successModal}
         onClose={() => {

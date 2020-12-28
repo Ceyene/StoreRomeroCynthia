@@ -5,8 +5,8 @@ export const StyledProdIndicator = styled.span`
   background-color: ${(props) => (props.Message ? "#3D3D3D" : "#18689d")};
   color: #fdfcfb;
   font-size: 1rem;
-  border-radius: ${(props) => (props.Message ? "1rem" : "50%")};
-  width: ${(props) => (props.Message ? "55%" : "2rem")};
+  border-radius: 1rem;
+  width: ${(props) => (props.Message ? "55%" : "auto")};
   height: 2rem;
   position: absolute;
   top: 0.5rem;
@@ -19,5 +19,16 @@ export const StyledProdIndicator = styled.span`
   svg {
     fill: ${({ color }) => color || "white"};
     width: 1rem;
+    margin: 0 0.6rem;
+  }
+`;
+
+export const StyledInd = styled.p`
+  color: #fdfcfb;
+  font-size: 1rem;
+  padding: 1rem;
+
+  @media screen and (min-width: 900px) {
+    display: none;
   }
 `;
