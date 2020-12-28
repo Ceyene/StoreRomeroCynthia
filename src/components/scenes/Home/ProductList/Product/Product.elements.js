@@ -65,20 +65,3 @@ export const ProductValue = styled.p`
     font-size: 2.25rem;
   }
 `;
-
-export const ProductButton = styled.button`
-  padding: 0.5rem;
-  background-color: #fdfcfb;
-  color: #18689d;
-  font-size: 1rem;
-  font-family: "Rubik", sans-serif;
-  border: none;
-  border-radius: 0.5rem;
-  outline: none;
-
-  @media screen and (min-width: 900px) {
-    padding: 1rem 4rem;
-    border-radius: 1.5rem;
-    cursor: pointer;
-  }
-`;

@@ -3,15 +3,23 @@ import React from "react";
 //components
 import Modal from "../Modal/Modal";
 //styled components
-import { ProductButton } from "../Product/Product.elements";
-import { SecondaryTitle, Info } from "../../../../styles/globalStyles";
+import { ErrorBackground } from "./ErrorModal.elements";
+import {
+  SecondaryTitle,
+  Info,
+  ActionButton,
+} from "../../../../styles/globalStyles";
 
 function ErrorModal({ isOpen, onClose }) {
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
-      <SecondaryTitle>Error</SecondaryTitle>
-      <Info Modal>Something went wrong.</Info>
-      <ProductButton onClick={onClose}>Try again</ProductButton>
+      <ErrorBackground>
+        <SecondaryTitle>Error</SecondaryTitle>
+        <Info Modal>Something went wrong.</Info>
+        <ActionButton color="#D71212" onClick={onClose}>
+          Try again
+        </ActionButton>
+      </ErrorBackground>
     </Modal>
   );
 }

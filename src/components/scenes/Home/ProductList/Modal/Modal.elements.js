@@ -17,13 +17,7 @@ export const StyledModal = styled.div`
 export const ModalContainer = styled.div`
   position: relative;
   top: 10rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  background-color: #aebfee;
-  padding: 1rem;
-  border-radius: 1rem;
   width: 300px;
   height: 300px;
+  border-radius: 1rem;
 `;

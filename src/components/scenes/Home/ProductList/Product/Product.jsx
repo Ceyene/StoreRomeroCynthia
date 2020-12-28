@@ -15,13 +15,13 @@ import {
   ProductRedeem,
   Value,
   ProductValue,
-  ProductButton,
 } from "./Product.elements";
 import {
   ProductImg,
   ContainerInfo,
   SecondaryTitle,
   Info,
+  ActionButton,
 } from "../../../../styles/globalStyles";
 //styled icons
 import { Coins } from "@styled-icons/fa-solid/Coins";
@@ -80,13 +80,14 @@ const Product = (props) => {
           <Coins color="gold" />
         </Value>
         {points >= cost && (
-          <ProductButton
+          <ActionButton
+            color="#18689d"
             onClick={() => {
               redeem(id, cost);
             }}
           >
             Redeem now
-          </ProductButton>
+          </ActionButton>
         )}
       </ProductRedeem>
       <SuccessModal
