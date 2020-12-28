@@ -1,10 +1,10 @@
 //dependencies
 import React, { useState } from "react";
 //components
-import PaginationInfo from "../PaginationInfo/PaginationInfo";
+import PaginationInfo from "../../../PaginationInfo/PaginationInfo";
 //styled components
 import { StyledPagination } from "./Pagination.elements";
-import { Button, FlexContainer } from "../../globalStyles";
+import { Button, FlexContainer } from "../../../styles/globalStyles";
 //styled icons
 import { ArrowRightShort } from "@styled-icons/bootstrap/ArrowRightShort";
 import { ArrowLeftShort } from "@styled-icons/bootstrap/ArrowLeftShort";

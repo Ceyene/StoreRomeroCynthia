@@ -1,7 +1,7 @@
 //dependencies
 import React from "react";
 //styled components
-import { PaginationText } from "../../globalStyles";
+import { PaginationText } from "../styles/globalStyles";
 
 //it renders pagination information
 const PaginationInfo = ({ currentPage, prodList }) => {

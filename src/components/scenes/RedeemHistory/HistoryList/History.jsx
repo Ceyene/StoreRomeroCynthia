@@ -4,7 +4,7 @@ import React from "react";
 import HistoryProduct from "../HistoryProduct/HistoryProduct";
 //styled components
 import { HistoryList } from "./History.elements";
-import { FlexContainer, SecondaryTitle } from "../../globalStyles";
+import { FlexContainer, SecondaryTitle } from "../../../styles/globalStyles";
 
 //it renders history of redeemed products
 const History = ({ history }) => {

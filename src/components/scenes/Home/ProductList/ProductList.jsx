@@ -1,12 +1,12 @@
 //dependencies
 import React from "react";
 //components
-import Product from "../Product/Product";
+import Product from "./Product/Product";
 //assets
-import { paginationData } from "../../assets/paginationData";
+import { paginationData } from "../../../../services/paginationData";
 //styled components
 import { ProductListContainer } from "./ProductList.elements";
-import { FlexContainer, SecondaryTitle } from "../../globalStyles";
+import { FlexContainer, SecondaryTitle } from "../../../styles/globalStyles";
 
 //it renders all available products
 const ProductList = ({ products, currentPage, updating, setUpdating }) => {

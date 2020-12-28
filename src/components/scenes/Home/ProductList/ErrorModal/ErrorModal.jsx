@@ -4,7 +4,7 @@ import React from "react";
 import Modal from "../Modal/Modal";
 //styled components
 import { ProductButton } from "../Product/Product.elements";
-import { SecondaryTitle, Info } from "../../globalStyles";
+import { SecondaryTitle, Info } from "../../../../styles/globalStyles";
 
 function ErrorModal({ isOpen, onClose }) {
   return (

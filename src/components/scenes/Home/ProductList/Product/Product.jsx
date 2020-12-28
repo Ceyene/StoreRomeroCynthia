@@ -1,9 +1,9 @@
 //dependencies
 import React, { useState, useContext } from "react";
 //context
-import { UserContext } from "../../context/userProvider";
+import { UserContext } from "../../../../../context/userProvider";
 //assets
-import { redeemProduct } from "../../assets/apiData";
+import { redeemProduct } from "../../../../../services/apiData";
 //components
 import ProductIndicator from "../ProductIndicator/ProductIndicator";
 import SuccessModal from "../SuccessModal/SuccessModal";
@@ -22,7 +22,7 @@ import {
   ContainerInfo,
   SecondaryTitle,
   Info,
-} from "../../globalStyles";
+} from "../../../../styles/globalStyles";
 //styled icons
 import { Coins } from "@styled-icons/fa-solid/Coins";
 

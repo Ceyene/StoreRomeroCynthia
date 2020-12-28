@@ -1,12 +1,12 @@
 //dependencies
 import React, { useState, useEffect } from "react";
 //assets
-import { callHistory } from "../../assets/apiData";
+import { callHistory } from "../../../services/apiData";
 //components
-import History from "../History/History";
+import History from "./HistoryList/History";
 //styled components
 import { StyledHistory } from "./HistoryContainer.elements";
-import { Title } from "../../globalStyles";
+import { Title } from "../../styles/globalStyles";
 
 const HistoryContainer = ({ updating }) => {
   //state with redeem history

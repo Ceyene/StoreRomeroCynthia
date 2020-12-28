@@ -7,7 +7,7 @@ import {
   SecondaryTitle,
   Info,
   ProductImg,
-} from "../../globalStyles";
+} from "../../../styles/globalStyles";
 
 //it renders each redeemed product
 const HistoryProduct = ({ name, photo, cost }) => {

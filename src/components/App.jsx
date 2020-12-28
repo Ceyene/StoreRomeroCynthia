@@ -2,19 +2,19 @@
 import React, { useState, useEffect } from "react";
 //assets
 import { dataPrice, dataCategory } from "../assets/filtersData";
-import { callProducts } from "../assets/apiData";
+import { callProducts } from "../services/apiData";
 //context provider
 import UserProvider from "../context/userProvider";
 //components
-import Header from "./Header/Header";
-import Hero from "./Hero/Hero";
-import Filters from "./Filters/Filters";
-import ProductList from "./ProductList/ProductList";
-import Pagination from "./Pagination/Pagination";
-import HistoryContainer from "./HistoryContainer/HistoryContainer";
-import Footer from "./Footer/Footer";
+import Header from "./scenes/Home/Header/Header";
+import Hero from "./scenes/Home/Hero/Hero";
+import Filters from "./scenes/Home/Filters/Filters";
+import ProductList from "./scenes/Home/ProductList/ProductList";
+import Pagination from "./scenes/Home/Pagination/Pagination";
+import HistoryContainer from "./scenes/RedeemHistory/HistoryContainer";
+import Footer from "./scenes/Home/Footer/Footer";
 //styles
-import GlobalStyle from "../globalStyles";
+import GlobalStyle from "./styles/globalStyles";
 
 function App() {
   //state with products list

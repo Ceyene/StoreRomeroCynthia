@@ -1,13 +1,13 @@
 //dependencies
 import React, { useContext } from "react";
 //assets
-import { sendPoints } from "../../assets/apiData";
+import { sendPoints } from "../../../../services/apiData";
 //context
-import { UserContext } from "../../context/userProvider";
+import { UserContext } from "../../../../context/userProvider";
 //logo image
-import Logo from "../../assets/images/gift-voucher.png";
+import Logo from "../../../../assets/images/gift-voucher.png";
 //components
-import MainInformation from "../MainInformation/MainInformation";
+import MainInformation from "./MainInformation/MainInformation";
 //styled components
 import {
   StyledHeader,
@@ -18,7 +18,7 @@ import {
   LogoImg,
   StyledIcon,
 } from "./Header.elements";
-import { Title } from "../../globalStyles";
+import { Title } from "../../../styles/globalStyles";
 //styled icons
 import { Coins } from "@styled-icons/fa-solid/Coins";
 

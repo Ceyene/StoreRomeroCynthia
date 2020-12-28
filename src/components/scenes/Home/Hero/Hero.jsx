@@ -2,7 +2,7 @@
 import React from "react";
 //styled components
 import { StyledHero } from "./Hero.elements";
-import { MainTitle } from "../../globalStyles";
+import { MainTitle } from "../../../styles/globalStyles";
 
 //it renders section name
 const Hero = ({ sectionName }) => {

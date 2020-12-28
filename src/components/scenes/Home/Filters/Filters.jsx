@@ -1,15 +1,15 @@
 //dependencies
 import React, { useEffect } from "react";
 //components
-import Filter from "../Filter/Filter";
-import PaginationInfo from "../PaginationInfo/PaginationInfo";
+import Filter from "./Filter/Filter";
+import PaginationInfo from "../../../PaginationInfo/PaginationInfo";
 //styled components
 import {
   FiltersContainer,
   PaginationContainer,
   ResetButton,
 } from "./Filters.elements";
-import { Title } from "../../globalStyles";
+import { Title } from "../../../styles/globalStyles";
 
 const Filters = (props) => {
   const {
