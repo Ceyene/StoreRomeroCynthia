@@ -47,12 +47,12 @@ const Product = (props) => {
     }
   };
   /* --------------------------------- */
-  //función para manejar cierre del modal
+  //it handles modal closing
   const handleCloseSuccess = (e) => {
     setSuccessModal(false);
   };
   /* --------------------------------- */
-  //función para manejar cierre del modal
+  //it handles modal closing
   const handleCloseError = (e) => {
     setErrorModal(false);
   };
