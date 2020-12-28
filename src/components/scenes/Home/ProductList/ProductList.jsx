@@ -1,15 +1,19 @@
 //dependencies
-import React from "react";
+import React, { useContext } from "react";
 //components
 import Product from "./Product/Product";
-//assets
+//context
+import { ProductContext } from "../../../../context/productProvider";
+//pagination
 import { paginationData } from "../../../../services/paginationData";
 //styled components
 import { ProductListContainer } from "./ProductList.elements";
 import { FlexContainer, SecondaryTitle } from "../../../styles/globalStyles";
 
 //it renders all available products
-const ProductList = ({ products, currentPage, updating, setUpdating }) => {
+const ProductList = ({ currentPage, updating, setUpdating }) => {
+  //extracting data from Provider ProductContext
+  const { products } = useContext(ProductContext);
   //info from products data
   const { loading, error, data } = products;
   //products to render per page

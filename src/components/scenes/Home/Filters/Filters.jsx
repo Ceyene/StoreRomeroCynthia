@@ -1,5 +1,7 @@
 //dependencies
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
+//context
+import { ProductContext } from "../../../../context/productProvider";
 //components
 import Filter from "./Filter/Filter";
 import PaginationInfo from "../../../PaginationInfo/PaginationInfo";
@@ -17,11 +19,12 @@ const Filters = (props) => {
     setPriceFilter,
     categoryFilter,
     setCategoryFilter,
-    getData,
-    products,
-    setProducts,
     currentPage,
   } = props;
+  //extracting data from Provider ProductContext
+  const { products, setProducts } = useContext(ProductContext);
+  //info from products data
+  const productsData = products.data;
   const { idPr, namePr, valuePr, optionsPr } = priceFilter;
   const { idCat, nameCat, valueCat, optionsCat } = categoryFilter;
   //when "prices" filter updates,
@@ -61,7 +64,7 @@ const Filters = (props) => {
   /* --------------------------------- */
   //it filters products by price
   const filterPrice = () => {
-    if (products !== undefined) {
+    if (productsData !== undefined) {
       if (valuePr === "Lowest Price") {
         return cheapFirst();
       } else if (valuePr === "Highest Price") {
@@ -70,21 +73,21 @@ const Filters = (props) => {
     }
   };
   const cheapFirst = () => {
-    const lowerPriceFirst = products.sort((a, b) => a.cost - b.cost);
-    return setProducts({ data: lowerPriceFirst });
+    const lowerPriceFirst = productsData.sort((a, b) => a.cost - b.cost);
+    return setProducts({ ...products, data: lowerPriceFirst });
   };
   const expensiveFirst = () => {
-    const higherPriceFirst = products.sort((a, b) => b.cost - a.cost);
-    return setProducts({ data: higherPriceFirst });
+    const higherPriceFirst = productsData.sort((a, b) => b.cost - a.cost);
+    return setProducts({ ...products, data: higherPriceFirst });
   };
   /* --------------------------------- */
   //it filters products by category
   const filterCategory = () => {
-    if (categoryFilter.value !== "Categories" && products !== undefined) {
-      let productsCopy = products.filter((product) => {
+    if (categoryFilter.value !== "Categories" && productsData !== undefined) {
+      let productsCopy = productsData.filter((product) => {
         return product.category === valueCat;
       });
-      return setProducts({ data: productsCopy });
+      return setProducts({ ...products, data: productsCopy });
     }
   };
   /* --------------------------------- */
@@ -92,7 +95,7 @@ const Filters = (props) => {
   return (
     <FiltersContainer>
       <PaginationContainer>
-        <PaginationInfo prodList={products} currentPage={currentPage} />
+        <PaginationInfo currentPage={currentPage} />
       </PaginationContainer>
       <Title>Sort by:</Title>
       <Filter

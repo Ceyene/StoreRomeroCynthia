@@ -1,5 +1,7 @@
 //dependencies
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+//context
+import { ProductContext } from "../../../../context/productProvider";
 //components
 import PaginationInfo from "../../../PaginationInfo/PaginationInfo";
 //styled components
@@ -10,7 +12,12 @@ import { ArrowRightShort } from "@styled-icons/bootstrap/ArrowRightShort";
 import { ArrowLeftShort } from "@styled-icons/bootstrap/ArrowLeftShort";
 
 //it renders pagination section
-const Pagination = ({ products, currentPage, next, prev }) => {
+const Pagination = ({ currentPage, next, prev }) => {
+  //extracting data from Provider ProductContext
+  const { products } = useContext(ProductContext);
+  //info from products data
+  const productsList = products.data;
+  /* --------------------------------- */
   //state with current page information
   const [page, setPage] = useState(1);
   /* --------------------------------- */
@@ -27,7 +34,7 @@ const Pagination = ({ products, currentPage, next, prev }) => {
   /* --------------------------------- */
   return (
     <StyledPagination>
-      <PaginationInfo currentPage={currentPage} prodList={products} />
+      <PaginationInfo currentPage={currentPage} />
       <FlexContainer>
         {page === 2 && (
           <Button
@@ -41,7 +48,7 @@ const Pagination = ({ products, currentPage, next, prev }) => {
             <ArrowLeftShort />
           </Button>
         )}
-        {page === 1 && products !== undefined && products.length > 16 && (
+        {page === 1 && productsList !== undefined && productsList.length > 16 && (
           <Button
             onClick={() => {
               nextPage();

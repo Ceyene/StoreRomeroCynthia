@@ -1,10 +1,17 @@
 //dependencies
-import React from "react";
+import React, { useContext } from "react";
+//context
+import { ProductContext } from "../../../../context/productProvider";
 //styled components
 import { PaginationText } from "../styles/globalStyles";
 
 //it renders pagination information
-const PaginationInfo = ({ currentPage, prodList }) => {
+const PaginationInfo = ({ currentPage }) => {
+  //extracting data from Provider ProductContext
+  const { products } = useContext(ProductContext);
+  //info from products data
+  const prodList = products.data;
+  /* --------------------------------- */
   if (prodList === undefined) {
     return <PaginationText>Loading...</PaginationText>;
   }
