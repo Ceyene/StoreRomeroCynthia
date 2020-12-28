@@ -1,7 +1,5 @@
 //dependencies
-import React, { useState, useEffect } from "react";
-//assets
-import { dataPrice, dataCategory } from "../assets/filtersData";
+import React, { useState } from "react";
 //context provider
 import UserProvider from "../context/userProvider";
 import ProductProvider from "../context/productProvider";
@@ -17,9 +15,6 @@ import Footer from "./scenes/Home/Footer/Footer";
 import GlobalStyle from "./styles/globalStyles";
 
 function App() {
-  //state with select filters value
-  const [priceFilter, setPriceFilter] = useState(dataPrice);
-  const [categoryFilter, setCategoryFilter] = useState(dataCategory);
   //state with number of current page
   const [currentPage, setCurrentPage] = useState(1);
   //state that handles updating history after redeeming products
@@ -42,14 +37,7 @@ function App() {
           <GlobalStyle />
           <Header />
           <Hero sectionName="Electronics" />
-          <Filters
-            priceFilter={priceFilter}
-            setPriceFilter={setPriceFilter}
-            categoryFilter={categoryFilter}
-            setCategoryFilter={setCategoryFilter}
-            getData={getData}
-            currentPage={currentPage}
-          />
+          <Filters currentPage={currentPage} />
           <ProductList
             currentPage={currentPage}
             updating={updating}

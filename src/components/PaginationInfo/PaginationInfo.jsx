@@ -1,7 +1,7 @@
 //dependencies
 import React, { useContext } from "react";
 //context
-import { ProductContext } from "../../../../context/productProvider";
+import { ProductContext } from "../../context/productProvider";
 //styled components
 import { PaginationText } from "../styles/globalStyles";
 

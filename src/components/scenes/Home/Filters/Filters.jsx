@@ -1,75 +1,31 @@
 //dependencies
-import React, { useEffect, useContext } from "react";
+import React, { useContext } from "react";
+//api
+import { callProducts } from "../../../../services/apiData";
 //context
 import { ProductContext } from "../../../../context/productProvider";
 //components
 import Filter from "./Filter/Filter";
 import PaginationInfo from "../../../PaginationInfo/PaginationInfo";
 //styled components
-import {
-  FiltersContainer,
-  PaginationContainer,
-  ResetButton,
-} from "./Filters.elements";
+import { FiltersContainer, PaginationContainer } from "./Filters.elements";
 import { Title } from "../../../styles/globalStyles";
 
-const Filters = (props) => {
-  const {
-    priceFilter,
-    setPriceFilter,
-    categoryFilter,
-    setCategoryFilter,
-    currentPage,
-  } = props;
+const Filters = ({ currentPage }) => {
   //extracting data from Provider ProductContext
   const { products, setProducts } = useContext(ProductContext);
   //info from products data
   const productsData = products.data;
-  const { idPr, namePr, valuePr, optionsPr } = priceFilter;
-  const { idCat, nameCat, valueCat, optionsCat } = categoryFilter;
-  //when "prices" filter updates,
-  //this function compares and change array in "products" state
-  useEffect(() => {
-    filterPrice();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [priceFilter]);
   /* --------------------------------- */
-  //when "category" filter updates,
-  //this function compares and change array in "products" state
-  useEffect(() => {
-    filterCategory();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [categoryFilter]);
-  /* --------------------------------- */
-  //handles state from price filter
-  const handlePrice = (e) => {
-    let copyPrice = valuePr;
-    copyPrice = e.target.value;
-    setPriceFilter({ ...priceFilter, valuePr: copyPrice });
-  };
-  //handles state from category filter
-  const handleCategory = (e) => {
-    let copyCategory = valueCat;
-    copyCategory = e.target.value;
-    setCategoryFilter({ ...categoryFilter, valueCat: copyCategory });
-  };
-  //it resets state from filters
-  //price and category reset
-  const handleReset = () => {
-    setPriceFilter({ ...priceFilter, valuePr: "Prices" });
-    setCategoryFilter({ ...categoryFilter, valueCat: "Categories" });
-    //renderize all, without filters
-    getData();
-  };
-  /* --------------------------------- */
-  //it filters products by price
-  const filterPrice = () => {
-    if (productsData !== undefined) {
-      if (valuePr === "Lowest Price") {
-        return cheapFirst();
-      } else if (valuePr === "Highest Price") {
-        return expensiveFirst();
-      }
+  //it changes the order in products array
+  const recentFirst = async () => {
+    try {
+      //data: async call, it returns promise
+      const recentDateFirst = await callProducts();
+      return setProducts({ ...products, data: recentDateFirst });
+    } catch (error) {
+      //presents error
+      setProducts({ ...products, error });
     }
   };
   const cheapFirst = () => {
@@ -81,16 +37,6 @@ const Filters = (props) => {
     return setProducts({ ...products, data: higherPriceFirst });
   };
   /* --------------------------------- */
-  //it filters products by category
-  const filterCategory = () => {
-    if (categoryFilter.value !== "Categories" && productsData !== undefined) {
-      let productsCopy = productsData.filter((product) => {
-        return product.category === valueCat;
-      });
-      return setProducts({ ...products, data: productsCopy });
-    }
-  };
-  /* --------------------------------- */
   //it renders filters section
   return (
     <FiltersContainer>
@@ -98,25 +44,9 @@ const Filters = (props) => {
         <PaginationInfo currentPage={currentPage} />
       </PaginationContainer>
       <Title>Sort by:</Title>
-      <Filter
-        key={idPr}
-        handleFilters={(e) => {
-          handlePrice(e);
-        }}
-        data={optionsPr}
-        name={namePr}
-        value={valuePr}
-      />
-      <Filter
-        key={idCat}
-        handleFilters={(e) => {
-          handleCategory(e);
-        }}
-        data={optionsCat}
-        name={nameCat}
-        value={valueCat}
-      />
-      <ResetButton onClick={handleReset}>Reset filters</ResetButton>
+      <Filter handleFilter={recentFirst} name="Most recent" />
+      <Filter handleFilter={cheapFirst} name="Lowest price" />
+      <Filter handleFilter={expensiveFirst} name="Highest price" />
     </FiltersContainer>
   );
 };
