@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 //assets
 import { callHistory } from "../../../services/apiData";
 //components
-import History from "./HistoryList/History";
+import History from "./History/History";
 //styled components
 import { StyledHistory } from "./HistoryContainer.elements";
 import { Title } from "../../styles/globalStyles";

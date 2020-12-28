@@ -11,7 +11,7 @@ const History = ({ history }) => {
   //state with products history data
   const { loading, error, data } = history;
   /* --------------------------------- */
-  if (loading === true) {
+  if (loading) {
     return (
       //It renders loading message
       <FlexContainer Centered>
@@ -30,7 +30,7 @@ const History = ({ history }) => {
   }
   /* --------------------------------- */
   //it renders a list of redeemed products
-  return Object.keys(data).length !== 0 ? (
+  return Object.keys(data).length >= 1 ? (
     <HistoryList>
       {data.map((prod, index) => (
         <HistoryProduct
