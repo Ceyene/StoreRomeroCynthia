@@ -46,6 +46,9 @@ const HistoryContainer = () => {
         <Link to="/">Back Home</Link>
       </BackLink>
       <History history={history} />
+      <BackLink>
+        <Link to="/">Back Home</Link>
+      </BackLink>
     </StyledHistory>
   );
 };

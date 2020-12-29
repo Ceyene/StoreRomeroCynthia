@@ -3,7 +3,7 @@ import React from "react";
 //context provider
 import UserProvider from "../context/userProvider";
 //components
-import { Header, HistoryContainer, Footer } from "../components";
+import { Header, HistoryContainer } from "../components";
 //styles
 import GlobalStyle from "../components/styles/globalStyles";
 
@@ -14,7 +14,6 @@ const RedeemHistory = () => {
       <GlobalStyle />
       <Header display="none" />
       <HistoryContainer />
-      <Footer />
     </UserProvider>
   );
 };

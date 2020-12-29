@@ -71,6 +71,7 @@ export const HistoryButton = styled.button`
   a {
     text-decoration: none;
     font-family: "Rubik", sans-serif;
+    color: #000000;
     font-size: 1rem;
     font-weight: 500;
   }

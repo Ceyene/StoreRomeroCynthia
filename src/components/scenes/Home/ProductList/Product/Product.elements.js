@@ -8,6 +8,9 @@ export const ProductContainer = styled.article`
   background-color: #fdfcfb;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
 
+  @media screen and (min-width: 768px) {
+    max-width: 40vw;
+  }
   @media screen and (min-width: 900px) {
     max-width: 20vw;
   }

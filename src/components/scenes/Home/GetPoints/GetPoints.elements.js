@@ -3,8 +3,9 @@ import styled from "styled-components";
 
 export const GiftPoints = styled.div`
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.8);
   width: 100%;
+  height: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,9 +18,10 @@ export const GiftPoints = styled.div`
     height: 5vh;
   }
   @media screen and (min-width: 900px) {
-    background-color: rgba(24, 104, 157, 0.3);
+    background-color: rgba(21, 220, 255, 0.2);
     position: relative;
-    height: 6vh;
+    height: 7vh;
+    max-height: 4.06rem;
   }
 `;
 
@@ -35,9 +37,10 @@ export const GiftButton = styled.button`
   color: #fdfcfb;
   background-color: rgba(24, 104, 157, 0.6);
   border: none;
-  padding: 0.4rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
   margin: 0.25rem;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   cursor: pointer;
   box-shadow: inset 0 -0.1em rgba(0, 0, 0, 0.2);
   outline: 0;

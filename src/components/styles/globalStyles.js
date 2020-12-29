@@ -110,18 +110,18 @@ export const Button = styled.button`
 `;
 
 export const ActionButton = styled.button`
-  padding: 0.5rem;
+  padding: 1rem;
   background-color: #fdfcfb;
   color: ${({ color }) => color};
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-family: "Rubik", sans-serif;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: 1.5rem;
   outline: none;
 
   @media screen and (min-width: 900px) {
-    padding: 1rem 4rem;
-    border-radius: 1.5rem;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
     cursor: pointer;
   }
 `;

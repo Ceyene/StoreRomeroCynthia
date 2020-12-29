@@ -11,9 +11,14 @@ export const FiltersContainer = styled.section`
   background-color: #fdfcfb;
   border-bottom: 1px solid #18689d;
 
-  @media screen and (min-width: 900px) {
-    padding: 1rem 15%;
+  @media screen and (min-width: 768px) {
     flex-direction: row;
+    padding: 1rem 5%;
+  }
+
+  @media screen and (min-width: 1200px) {
+    padding: 1rem 15%;
+    justify-content: center;
   }
 `;
 
@@ -23,6 +28,7 @@ export const PaginationContainer = styled.div`
   @media screen and (min-width: 900px) {
     display: block;
     border-right: 1px solid #18689d;
-    padding-right: 2rem;
+    padding-right: 1rem;
+    margin-right: 1rem;
   }
 `;
