@@ -27,7 +27,7 @@ const Header = ({ display }) => {
   //it renders header function
   return (
     <StyledHeader>
-      <Link to="/">
+      <Link to="/StoreRomeroCynthia">
         <LogoImg src={Logo} alt="Store Logo" />
       </Link>
       <UserInfo>
