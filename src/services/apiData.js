@@ -1,7 +1,6 @@
 export const myHeaders = {
   "Content-Type": "application/json",
-  Authorization:
-    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmViNmM4Y2Y3NjZmZTAwMTkxOWUwYzQiLCJpYXQiOjE2MDkyNjQyNjh9.GQiDxXmuMqfqcmmfElVVDCAgOj69hweTWELotAJL2zM",
+  Authorization: MY_TOKEN,
 };
 export const baseUrl = "https://coding-challenge-api.aerolab.co/";
 
