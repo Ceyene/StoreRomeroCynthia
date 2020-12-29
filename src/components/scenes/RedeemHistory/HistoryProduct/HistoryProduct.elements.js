@@ -6,7 +6,7 @@ export const StyledHistoryProduct = styled.div`
   background-color: #fdfcfd;
   display: flex;
   margin: 0.5rem;
-  width: 70vw;
+  width: 75vw;
 
   @media screen and (min-width: 900px) {
     width: 30vw;

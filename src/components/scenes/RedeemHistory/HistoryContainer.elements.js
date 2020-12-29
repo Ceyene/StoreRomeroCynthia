@@ -13,7 +13,7 @@ export const StyledHistory = styled.section`
 `;
 
 export const BackLink = styled.div`
-  width: 130px;
+  width: 9.375rem;
   padding: 0.5rem 0;
   margin: 1rem auto;
   border-radius: 1.5rem;
