@@ -18,8 +18,13 @@ export const StyledHeader = styled.header`
 export const StyledIcon = styled.span`
   svg {
     fill: ${({ color }) => color || "white"};
-    width: 1.5rem;
+    width: 1rem;
     margin-right: 0.5rem;
+  }
+  @media screen and (min-width: 900px) {
+    svg {
+      width: 1.5rem;
+    }
   }
 `;
 
@@ -45,51 +50,46 @@ export const UserInfo = styled.nav`
 `;
 
 export const Points = styled.div`
-  padding: ${(props) => (props.Gift ? "0 0.5rem" : "0.5rem")};
-  background-color: ${(props) =>
-    props.Gift ? "transparent" : "rgba(24, 104, 157, 0.3)"};
-  border-radius: ${(props) => (props.Gift ? "0" : "1rem")};
+  padding: 0.5rem;
+  background-color: rgba(24, 104, 157, 0.3);
+  border-radius: 1rem;
   display: flex;
   align-items: center;
-  margin-left: ${(props) => (props.Gift ? "0" : "1rem")};
-  margin-right: ${(props) => (props.Gift ? "0" : "0.75rem")};
+  margin-right: 0.75rem;
+  margin-left: 0.25rem;
 `;
 
-export const GiftPoints = styled.div`
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0.9);
-  width: 100%;
-  display: flex;
-  justify-content: center;
+export const HistoryButton = styled.button`
+  display: ${(props) => props.display};
   align-items: center;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  z-index: 4;
+  outline: none;
+  border-radius: 1rem;
+  border: none;
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.1);
+
+  a {
+    text-decoration: none;
+    font-family: "Rubik", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  svg {
+    fill: #000;
+    width: 1rem;
+    margin-left: 0.25rem;
+  }
 
   @media screen and (min-width: 900px) {
-    position: relative;
-    display: block;
-    background-color: transparent;
-    width: auto;
-  }
-`;
+    cursor: pointer;
 
-export const GiftButton = styled.button`
-  text-align: center;
-  color: #fdfcfb;
-  background-color: rgba(24, 104, 157, 0.6);
-  border: none;
-  padding: 0.4rem;
-  margin: 0.25rem;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  box-shadow: inset 0 -0.1em rgba(0, 0, 0, 0.2);
-  outline: 0;
-  transition: 0.2s;
-  will-change: transform;
+    a {
+      font-size: 1.5rem;
+    }
 
-  &:active {
-    transform: scale(0.9);
+    svg {
+      width: 1.5rem;
+    }
   }
 `;

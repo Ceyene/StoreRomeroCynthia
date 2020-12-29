@@ -1,5 +1,7 @@
+//dependencies
 import styled, { createGlobalStyle } from "styled-components";
 
+//global styles
 const GlobalStyle = createGlobalStyle`
 * {
   padding: 0;
@@ -37,14 +39,14 @@ export const MainInfo = styled.h4`
 `;
 
 export const Title = styled.h3`
-  font-size: 1rem;
+  font-size: ${(props) => (props.Section ? "1.3rem" : "1rem")};
   font-family: "Rubik", sans-serif;
   font-weight: 300;
-  color: ${(props) => (props.Gift ? "#FFFFFF" : "#888888")};
+  color: ${(props) => (props.Gift ? "#ffffff" : "#888888")};
 
   @media screen and (min-width: 900px) {
-    font-size: 1.1rem;
-    color: ${(props) => props.Gift && "#888888"};
+    font-size: ${(props) => (props.Section ? "1.6rem" : "1.1rem")};
+    color: ${(props) => props.Gift && "#000000"};
   }
 `;
 
@@ -63,7 +65,11 @@ export const SecondaryTitle = styled.h4`
 `;
 
 export const ProductImg = styled.img`
-  width: ${(props) => (props.Small ? "25%" : "100%")};
+  width: ${(props) => (props.Small ? "30vw" : "100%")};
+
+  @media screen and (min-width: 768px) {
+    width: ${(props) => (props.Small ? "25%" : "100%")};
+  }
 `;
 
 export const PaginationText = styled.p`
@@ -98,7 +104,7 @@ export const Button = styled.button`
     cursor: pointer;
 
     &:hover {
-      background-color: #ebe8e8;
+      background-color: #ffffff;
     }
   }
 `;

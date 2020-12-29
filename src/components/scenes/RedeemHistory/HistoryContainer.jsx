@@ -1,14 +1,15 @@
 //dependencies
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 //assets
 import { callHistory } from "../../../services/apiUser";
 //components
 import History from "./History/History";
 //styled components
-import { StyledHistory } from "./HistoryContainer.elements";
+import { StyledHistory, BackLink } from "./HistoryContainer.elements";
 import { Title } from "../../styles/globalStyles";
 
-const HistoryContainer = ({ updating }) => {
+const HistoryContainer = () => {
   //state with redeem history
   const [history, setHistory] = useState({
     loading: true,
@@ -20,11 +21,6 @@ const HistoryContainer = ({ updating }) => {
   useEffect(() => {
     getHistory();
   }, []);
-  /* --------------------------------- */
-  //When redeeming any product, it calls API and gets redeem history data
-  useEffect(() => {
-    getHistory();
-  }, [updating]);
   /* --------------------------------- */
   //Getting products data
   const getHistory = async () => {
@@ -45,7 +41,10 @@ const HistoryContainer = ({ updating }) => {
   //it renders history section
   return (
     <StyledHistory>
-      <Title>Redeem History</Title>
+      <Title Section>My Product's Redeem History</Title>
+      <BackLink>
+        <Link to="/">Back Home</Link>
+      </BackLink>
       <History history={history} />
     </StyledHistory>
   );

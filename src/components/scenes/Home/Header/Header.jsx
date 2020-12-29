@@ -1,7 +1,6 @@
 //dependencies
 import React, { useContext } from "react";
-//assets
-import { sendPoints } from "../../../../services/apiUser";
+import { Link } from "react-router-dom";
 //context
 import { UserContext } from "../../../../context/userProvider";
 //logo image
@@ -13,39 +12,24 @@ import {
   StyledHeader,
   UserInfo,
   Points,
-  GiftPoints,
-  GiftButton,
   LogoImg,
   StyledIcon,
+  HistoryButton,
 } from "./Header.elements";
-import { Title } from "../../../styles/globalStyles";
 //styled icons
 import { Coins } from "@styled-icons/fa-solid/Coins";
+import { Gift } from "@styled-icons/icomoon/Gift";
 
-const Header = () => {
+const Header = ({ display }) => {
   //extracting data from Provider UserContext
-  const { userPoints, setUserPoints, userName } = useContext(UserContext);
-
-  //update points when adding gift points
-  const addPoints = async (giftPoints) => {
-    try {
-      //initial state: loading and without errors
-      setUserPoints({ ...userPoints, loading: true, error: null });
-      //data: async call, it returns promise
-      const getPoints = await sendPoints(giftPoints);
-      const newPoints = getPoints["New Points"];
-      //presenting data
-      return setUserPoints({ ...userPoints, loading: false, data: newPoints });
-    } catch (error) {
-      //presenting error
-      return setUserPoints({ ...userPoints, loading: false, error });
-    }
-  };
+  const { userPoints, userName } = useContext(UserContext);
   /* --------------------------------- */
   //it renders header function
   return (
     <StyledHeader>
-      <LogoImg src={Logo} alt="Store Logo" />
+      <Link to="/">
+        <LogoImg src={Logo} alt="Store Logo" />
+      </Link>
       <UserInfo>
         <MainInformation userInfo={userName} />
         <Points>
@@ -54,35 +38,11 @@ const Header = () => {
             <Coins color="gold" />
           </StyledIcon>
         </Points>
-        <GiftPoints>
-          <Title Gift>Get Free Points!</Title>
-          <Points Gift>
-            <GiftButton
-              onClick={() => {
-                addPoints(1000);
-              }}
-            >
-              {" "}
-              1000{" "}
-            </GiftButton>
-            <GiftButton
-              onClick={() => {
-                addPoints(5000);
-              }}
-            >
-              {" "}
-              5000{" "}
-            </GiftButton>
-            <GiftButton
-              onClick={() => {
-                addPoints(7500);
-              }}
-            >
-              {" "}
-              7500{" "}
-            </GiftButton>
-          </Points>
-        </GiftPoints>
+        <HistoryButton display={display}>
+          <Link to="/History">
+            My <Gift />
+          </Link>
+        </HistoryButton>
       </UserInfo>
     </StyledHeader>
   );
