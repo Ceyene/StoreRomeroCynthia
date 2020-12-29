@@ -43,11 +43,11 @@ const HistoryContainer = () => {
     <StyledHistory>
       <Title Section>My Product's Redeem History</Title>
       <BackLink>
-        <Link to="/">Back Home</Link>
+        <Link to="/StoreRomeroCynthia">Back Home</Link>
       </BackLink>
       <History history={history} />
       <BackLink>
-        <Link to="/">Back Home</Link>
+        <Link to="/StoreRomeroCynthia">Back Home</Link>
       </BackLink>
     </StyledHistory>
   );

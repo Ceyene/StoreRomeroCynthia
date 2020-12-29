@@ -16,7 +16,7 @@ const NotFound = () => {
     <NotFoundContainer>
       <NotFoundImg src={NotFoundImage} alt="Not Found" />
       <StyledLink>
-        <Link to="/">Back to Homepage</Link>
+        <Link to="/StoreRomeroCynthia">Back to Homepage</Link>
       </StyledLink>
     </NotFoundContainer>
   );
