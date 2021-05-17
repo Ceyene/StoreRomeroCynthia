@@ -1,6 +1,6 @@
 # Rewards Store by Cynthia Romero
 
-My final project for Acamica's Front End Developer Course. Made with functional components (React Hooks) and bootstrapped with [Create React App](https://github.com/facebook/create-react-app). 
+Aerolab Coding Challenge. Made with functional components (React Hooks) and bootstrapped with [Create React App](https://github.com/facebook/create-react-app). 
 
 You can see it in: http://ceyene.github.io/StoreRomeroCynthia
 
